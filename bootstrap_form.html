@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Student Registration Form</title>
+      <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+      <style>
+         input[type="text"],input[type="number"],input[type="date"],input[type="tel"],input[type="email"],select,textarea {
+            width:100%;
+            padding: 12px 20px;
+            box-sizing:border-box;
+            margin-top:2px;
+            margin-top:5px;
+         }
+		 
+         input[type="radio"] {
+            transform: scale(1.5);
+            margin-top:8px;
+            margin-right:4px;
+         }
+		 
+         td {
+            padding:10px;
+            width:33.33%;
+         }
+
+         textarea {
+            height:100px; /* Increased height */
+         }
+
+         div {
+            padding: 2em;
+            border:none;
+            background: #d1e0e0;
+         }
+
+         table {
+            width: 100%;
+         }
+		 
+         h1 {
+            padding: 10px;
+            color:white;
+            text-align:center;
+            background-color:#4c7373;
+            margin-bottom:0px;
+            margin-top:0px;
+            text-shadow: 2px 2px #FF0000;
+         }
+		 
+         .button-container {
+            text-align:right;
+            padding:10px;
+         }
+		
+         .button {
+            padding: 15px 32px;
+            color: white;
+            text-align:center;
+            border: none;
+         }
+
+         .button1 { background-color: #04AA6D; margin-right:10px; }
+         .button2 { background-color: #008CBA; margin-right:10px; }
+         .button3 { background-color: #555555; }
+		
+         label {
+            font-size: 20px;
+         }
+
+         input[type="file"] {
+            margin-top:10px;
+         }
+
+         .required::after {
+            content: "*";
+            color: red;
+         }
+       </style>
+   </head>
+   <body>
+    <header>
+	   <h1>Student Registration</h1>
+	</header>
+	
+	<div>
+	<form method="POST" action="">
+	<table>
+	  <tr>
+	    <td>
+		    <label class="required">First Name</label><br>
+            <input type="text" name="FName" placeholder="Enter First Name" required>
+		</td>
+	  
+	    <td>
+		   <label class="required">Last Name</label><br>
+           <input type="text" name="LName" placeholder="Enter Last Name" required>
+		</td>
+	  
+        <td>
+		   <label class="required">Father Name</label><br>
+           <input type="text" name="FatherName" placeholder="Enter Father Name" required>
+		</td>
+	  </tr> 
+		
+	  <tr>
+		 <td>
+            <label class="required">Age</label><br>
+            <input type="number" name="Age" placeholder="Enter Age" required>
+         </td>
+
+		 <td>
+            <label class="required">DOB (dd/mm/yyyy)</label><br>
+            <input type="date" name="stuDOB" required>
+         </td>
+		 
+		 <td>
+            <label class="required">Email ID</label><br>
+            <input type="email" name="email" placeholder="Enter Email ID" required>
+         </td>
+	  </tr>
+
+	  <tr>
+	     <td>
+		    <label class="required">Gender</label><br>
+            <input type="radio" name="Gender" value="Male" required> Male
+            <input type="radio" name="Gender" value="Female" required> Female
+            <input type="radio" name="Gender" value="Others" required> Others
+		 </td>
+
+		 <td>
+		    <label class="required">Blood Group</label><br>
+            <select name="BloodGroup" required>
+               <option value="">Select Blood Group</option>
+               <option>A+ve</option>
+               <option>B+ve</option>
+               <option>O+ve</option>
+            </select>
+		 </td>
+
+		 <td>
+		    <label class="required">Education Qualification</label><br>
+            <select name="Degree" required>
+               <option value="">Select Education</option>
+               <option>10th</option>
+               <option>12th</option>
+               <option>UG</option>
+            </select>
+		 </td>
+	  </tr>
+
+	  <tr>
+	     <td>
+		    <label class="required">Address</label><br>
+            <textarea name="Address" rows="3" placeholder="Enter your Address" required></textarea>
+		 </td>
+
+		 <td>
+		    <label class="required">Mobile Number</label><br>
+            <input type="tel" name="Mobile" placeholder="Enter Mobile Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+		 </td>
+
+		 <td>
+		    <label class="required">ID Proof Number</label><br>
+            <input type="number" name="IDno" placeholder="Enter ID Proof No" required>
+		 </td>
+	  </tr>
+
+	  <tr>
+	     <td>
+		    <label class="required">State</label><br>
+            <select name="State" required>
+               <option value="">Select State</option>
+               <option>Tamil Nadu</option>
+               <option>Andhra</option>
+               <option>Karnataka</option>
+            </select>
+		 </td>
+
+		 <td>
+		    <label class="required">City</label><br>
+            <select name="City" required>
+               <option value="">Select City</option>
+               <option>Puducherry</option>
+               <option>Karaikal</option>
+               <option>Chennai</option>
+            </select>
+		 </td>
+
+		 <td>
+		    <label class="required">Country</label><br>
+            <select name="Country" required>
+               <option value="">Select Country</option>
+               <option>India</option>
+               <option>Bangladesh</option>
+               <option>Pakistan</option>
+            </select>
+		 </td>
+	  </tr>
+	   
+	  <tr>
+	     <td>
+		    <label class="required">Upload Your Marksheets</label><br>
+            <input type="file" name="file" multiple required>
+		 </td>
+	  </tr>
+	</table>
+	
+	<div class="button-container">
+	   <button class="button button1" type="submit">Submit</button>
+	   <button class="button button2" type="reset">Reset</button>
+	   <button class="button button3" type="button" onclick="closeForm()">Close</button>
+	</div>
+	</form>
+	</div>
+   </body>
+</html>

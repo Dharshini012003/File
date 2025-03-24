@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Student Registration</title>
+      <style> 
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         input[type="text"],
+         input[type="number"],
+         input[type="date"],
+         input[type="tel"],
+         input[type="email"],
+         select,
+         textarea {
+         width: 100%;
+         padding: 12px 20px;
+         box-sizing: border-box;
+         margin-top: 5px;
+         font-family: "Arial";
+         border-radius: 4px;
+         border: none;
+         }
+         input[type="radio"] {
+         transform: scale(1.5);
+         margin-top: 8px;
+         margin-right: 4px;
+         }
+         input:focus, select:focus, textarea:focus {
+         outline: none;
+         border: 2px solid grey; 
+         }
+         td {
+         padding: 10px;
+         width:33.33%;
+         vertical-align: top;
+         }
+         .container {
+         margin-top: 0px;
+         padding: 2em;
+         /* background: #d1e0e0;*/
+         /*background: #91c9bb;*/
+         }
+         body
+         { background: #91c9bb;}
+         .logo img {
+         width: 55px;
+         float: right;
+       // padding-right: 7px;
+         padding-top:3px;  
+          background:#d6d3c9;
+		 //border-radius:20px;
+         //margin-left:10px;	
+         margin-right:4px;		 
+         }
+         header
+         {
+         background-color: #4c7373;
+         }
+         h1 {
+         text-align: center;
+         color: white;
+         text-shadow: 2px 2px #FF0000;
+         padding: 10px;
+         }
+         .button {
+         padding: 12px 30px;
+         color: white;
+         text-align: center;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         text-transform: capitalize;
+         }
+         .button1 { background-color: #04AA6D; margin-right: 10px; }
+         .button2 { background-color: #008CBA; margin-right: 10px; }
+         .button3 { background-color: #555555; }
+         .button1:hover { background-color: #197042; }
+         .button2:hover { background-color: #4287f5; }
+         .button3:hover { background-color: black; }
+         label {
+         font-size: 17px;
+         font-family: "Times";
+         font-weight: 100;
+         }
+         input[type="file"] {
+         margin-top: 10px;
+         }
+         .required::after {
+         content: "*";
+         color: red;
+         padding-left: 5px;
+         }
+         table {
+         width: 100%;
+         background-image: url('bgimg.jpg');
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center;
+         border-collapse: separate;
+         border-radius: 15px;
+         padding: 30px;
+         box-shadow: 10px 5px 5px grey;
+         margin-right:20px;
+         }
+         .clearable-select-container {
+         position: relative;
+         width: 100%;
+         }
+         select {
+         width: 100%; 
+         padding-right: 30px;
+         appearance: none;
+         }
+         .clearable-select-container::after {
+         content: '▼';
+         opacity: 0.8;
+         position: absolute;
+         top: 11%;
+         bottom: 0;
+         right: 0;
+         width: 25px;
+         background-color: #91c9bb;
+         border-top-right-radius: 4px;
+         border-bottom-right-radius: 4px;
+         border-left: 2px solid black;
+         pointer-events: none; 
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         }
+         .clear-button {
+         position: absolute;
+         right: 30px;
+         top: 55%;
+         transform: translateY(-50%);
+         background: none;
+         border: none;
+         color: #888;
+         font-size: 18px;
+         cursor: pointer;
+         }
+         .clear-button:hover {
+         color: #333;
+         }
+         .hidden {
+         display: none;
+         }
+         ::-webkit-calendar-picker-indicator {
+         background-color: #91c9bb;
+         cursor: pointer;
+         border-radius: 4px;
+         }
+         input[type=date]:required:invalid::-webkit-datetime-edit {
+         appearance: none;
+         color: transparent;
+         }
+         .error-msg {
+         color: red;
+         font-size: 16px;
+         margin-top: 5px;
+         /* background: #faebe8;*/
+         }
+         .success-msg {
+         color: green;
+         font-size: 16px;
+         margin-top: 5px;
+         }
+         body {
+         padding-bottom: 20px;
+         }
+         select:required:invalid {
+         color: gray;
+         }
+         option[value=""][disabled] {
+         display: none;
+         }
+         option {
+         color: black;
+         }
+         #numAge
+         {
+         background-color: #ddede0;
+         border: 10px;
+         }
+         textarea
+         {
+         height:70px;
+         }
+         #popupDialog
+         {
+         display: none;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding:140px 40px 100px 40px;
+         background-color: #fff;
+         border: 1px solid #ccc;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         z-index: 2;
+         border-radius:6px;
+         text-align:center;
+         box-shadow:0 2px;
+         align-items:center;
+         }
+         #ptagpop
+         {
+         margin-top:0;
+         font-size:15px;
+         color:black;
+         }
+         #tickImg{
+         margin-top:-180px;
+         width:120px;
+         height:120px;
+         border-radius:50%;
+         box-shadow:0 2px;
+         vertical-align:top;
+         }
+         #tq
+         {
+         margin-top:0;
+         vertical-align: top;
+         color: black;
+         text-decoration:none;
+         background-color:none;
+         }
+         #tqbutton
+         {
+         margin-top:50px;
+         padding: 12px 30px;
+         align-items:center;
+         width:100%;
+         background-color:#3ec261;
+         border:none;
+         color:white;
+         }
+         #tqbutton:hover
+         {
+         background-color:#0eeb0e;
+         }
+         #overlay {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         z-index: 1;
+         }
+         @media only screen and (max-width:  768px) 
+         {
+         /*mobile*/
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         table {
+         display: block;
+         width: 100%;
+         border-collapse: separate;
+         }
+         tr {
+         display: flex;
+         flex-direction: column; 
+         margin-bottom: 20px; 
+         }
+         td {
+         width: 100%; 
+         margin-bottom: 10px; 
+         margin-right:10px;
+         }
+         .button-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center; 
+         }
+         .button {
+         width: 50%; 
+         margin: 5px ; 
+         }
+         }
+      </style>
+    </head>
+   <body>
+      <header class="header">
+         <div class="logo">
+            <a href="#"><img src="graduated.png" alt="a logo"></a>
+            <h1 class="header-text">Student Registration</h1>
+         </div>
+      </header>
+      <div class="container " >
+         <form name="myForm" id="myForm" method="GET" action="process.html" >
+            <table>
+               <tr>
+                  <td>
+                     <label class="required">First Name</label><br>
+                     <input type="text" name="First Name" id="txtFName"  placeholder="Enter First Name" maxlength="50"
+					 onkeypress="return /[a-zA-Z\s]/i.test(event.key);" 
+                     onkeydown="handleEnterNavigation(event, 'txtLname');"
+					 onchange="RemoveExtraSpace(this.id);" 
+					 oninput="clearError(this.id);" 
+					 onblur = "RemoveExtraSpace(this.id);" autocomplete="off" required>
+                     <span name="error" class="error-msg" id="error-txtFName"></span>
+                  </td>
+                  <td>
+                     <label class="required">Last Name</label><br>
+                     <input type="text" name="Last Name" id="txtLname"  placeholder="Enter Last Name" maxlength="50" 
+					 onkeypress="return /[a-zA-Z\s]/i.test(event.key);" 
+                     onkeydown="handleEnterNavigation(event, 'txtFtName');"
+					 onchange="RemoveExtraSpace(this.id);" 
+					 oninput="clearError(this.id);"
+					 onblur = "RemoveExtraSpace(this.id);" autocomplete="off" required><!--[a-zA-Z]-->
+                     <span name="error" class="error-msg" id="error-txtLname"></span>
+                  </td>
+                  <td>
+                     <label class="required">Father Name</label><br>
+                     <input type="text" name="Father Name" id="txtFtName"  placeholder="Enter Father Name" maxlength="50" 
+					 onkeypress="return /[a-zA-Z\s]/i.test(event.key);" 
+                     onkeydown="handleEnterNavigation(event, 'stuDOBID');"
+					 onchange="RemoveExtraSpace(this.id);" 
+					 oninput="clearError(this.id);"
+					 onblur = "RemoveExtraSpace(this.id);" autocomplete="off" required>
+                     <span class="error-msg" id="error-txtFtName"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label class="required">DOB (dd/mm/yyyy)</label><br>
+                     <input type="text" name="DOB" value="" id="stuDOBID" placeholder="Select DOB (dd/mm/yyyy)"
+                        onclick="this.type='date'; setMaxDateBeforeToday();" 
+						onkeydown="handleEnterNavigation(event, 'emailID'); return  event.key == 'Backspace' || event.key == 'Delete' || event.key == 'ArrowLeft' || event.key == 'ArrowRight' || event.key == 'Tab' || event.key == 'Enter' ;"
+						min="1999-01-01" onchange="formatDate(); calculateAge(this.id);" 
+						oninput="clearError(this.id);"
+						onblur ="validateSelect(this.id);" 
+						 autocomplete="off" required>
+                     <span class="error-msg" id="error-stuDOBID"></span>
+                  </td>
+                  <td>
+					 <label class="required">Age</label><br>
+                     <input type="text" name="Age" id="numAge" placeholder="Enter Age" 
+					 onkeydown="return event.keyCode !== 69 || event.key == 'Enter';"   readonly autocomplete="off" required><br>
+                     <span class="error-msg" id="error-numAge"></span>
+                  </td>
+                  <td>
+                     <label class="required">Email ID</label><br>
+                     <input type="email" name="Email ID" id="emailID" placeholder="Enter Email ID" 
+					 onchange= "EmailCheck(); " 
+					 onkeydown ="handleEnterNavigation(event, 'rdGenMale'); return event.key !== ' ' || event.key == 'Enter'; "  
+					 maxlength="50" 
+					 oninput= "clearError(this.id);" 
+					 onblur = "EmailCheck();" autocomplete="off" required >
+                     <span class="error-msg" id="error-emailID"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label class="required">Gender</label><br>
+                     <input type="radio" name="Gender" value="" id="rdGenMale" 
+
+					 onchange="isEmptyofGender(this.name);" 
+					 oninput="clearError(this.id);"
+					 onblur = "isEmptyofGender(this.name);"	 required> Male 
+                     &nbsp;<input type="radio" name="Gender" value="" id="rdGenFemale" 
+					 onchange="isEmptyofGender(this.name);" 
+					 oninput="clearError(this.id);"
+					 onblur = "isEmptyofGender(this.name);" required> Female 
+                     &nbsp;<input type="radio" name="Gender" value="" id="rdGenOthers" 
+					 onchange="isEmptyofGender(this.name);" 
+					 oninput="clearError(this.id);" 
+                     onblur = "isEmptyofGender(this.name);"  required> Others
+                     <br> <span id="error-gender" class="error-msg"></span>
+                  </td>
+                  <td>
+                     <label class="required">Blood Group</label><br>
+                     <div class="clearable-select-container">
+                        <select name="Blood Group" id="SelBgID"  
+						onchange="toggleClearButton('selbgbutton','SelBgID')" 
+						oninput="clearError(this.id);" 
+						onblur ="validateSelect(this.id);" required>
+                           <option disabled hidden selected value="">Select Blood Group</option>
+                           <option value="A+ve">A+ve</option>
+                           <option value="B+ve">B+ve</option>
+                           <option value="O+ve">O+ve</option>
+                        </select>
+                        <button type="button" id="selbgbutton" class="clear-button hidden" onclick="clearSelect('SelBgID','selbgbutton')">X</button>
+                     </div>
+                     <span id="error-SelBgID" class="error-msg"></span>
+                  </td>
+                  <td>
+                     <label class="required">Educational Qualification</label><br>
+                     <div class="clearable-select-container">
+                        <select name="Educational Qualification" id="selEduID"  
+						onchange="toggleClearButton('seleEduButton', 'selEduID')" 
+						oninput="clearError(this.id);" 
+						onblur ="validateSelect(this.id);" required>
+                           <option disabled hidden selected value="">Select Educational Qualification</option>
+                           <option value="10th">10th</option>
+                           <option value="12th">12th</option>
+                           <option value="UG">UG</option>
+                        </select>
+                        <button type="button" id="seleEduButton" class="clear-button hidden" onclick="clearSelect('selEduID','seleEduButton')">X</button>
+                     </div>
+                     <span id="error-selEduID" class="error-msg"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                        <label class="required">Mobile Number</label><br>  
+                   <input type="tel" name="Mobile Number" id="stuContact" placeholder="Enter Mobile Number" 
+                    onchange="  phoneNoValidationTenNumbers();" maxlength="16" autocomplete="off" 					
+					oninput="clearError(this.id);"
+					onkeydown=" handleEnterNavigation(event, 'NumIDno'); return /^[0-9+\- ]$/.test(event.key) || event.key == 'Backspace' || event.key == 'Delete' || event.key == 'ArrowLeft' || event.key == 'ArrowRight' || event.key == 'Tab';"
+					onblur="  phoneNoValidationTenNumbers();" required>
+					<span id="error-stuContact" class="error-msg"></span>
+                  </td>
+                  <td>
+					 <label class="required">Permanent Account Number (PAN)</label><br>
+					<input type="text" name="Permanent Account Number(PAN)" id="NumIDno" maxlength="10" placeholder="Enter Permanent Account Number (PAN)"
+					onchange="proofValidation();" 
+					onkeydown=" handleEnterNavigation(event, 'txtArAddID'); return /^[A-Za-z0-9-]$/.test(event.key) || event.key == 'Backspace' || event.key == 'Delete' || event.key == 'ArrowLeft' || event.key == 'ArrowRight' || event.key == 'Tab' || event.key == 'Enter';"
+					onblur="proofValidation();" 
+					oninput="capitalizeInput(this);"
+					autocomplete="off"  required>
+					<span id="error-NumIDno" class="error-msg"></span>
+                  </td>
+                  <td>
+                       <label class="required">Address</label><br>
+                     <textarea name="Address" id="txtArAddID"  placeholder="Enter Address" rows="3"  maxlength="150" autocomplete="off"
+					  onchange="RemoveExtraSpace(this.id);" 
+					  oninput="clearError(this.id);" 
+					  onblur="RemoveExtraSpace(this.id);"
+					 onkeydown = "handleEnterNavigation(event, 'selCtryID'); return /^[A-Za-z0-9'\.\-\s\,\/\(\)\&\\:\{\}\&\|\;\/\#\+@]*$/.test(event.key) || event.key == 'Backspace' || event.key == 'Delete' || event.key == 'ArrowLeft' || event.key == 'ArrowRight' || event.key == 'Tab';" required></textarea>
+					 
+                     <span id="error-txtArAddID" class="error-msg"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label class="required ">Country</label><br>
+                     <div class="clearable-select-container ">
+                        <select  name="Country"  id="selCtryID"   
+						onchange="toggleClearButton('selCtryButton','selCtryID');  populateStates();" 
+						onblur ="validateSelect(this.id);" 
+						oninput="clearError(this.id);" required>
+                           <option  disabled hidden selected value="">Select Country</option>
+                           <option value="India">India</option>
+                           <option value="US">US</option>
+                           <!--option value="UK">UK</option>-->
+                        </select>
+                        <button type="button" id="selCtryButton" class="clear-button hidden" onclick="clearSelect('selCtryID','selCtryButton')">X</button>
+                     </div>
+                     <span id="error-selCtryID" class="error-msg"></span>
+                  </td>
+                  <td>
+                     <label class="required">State</label><br>
+                     <div class="clearable-select-container ">
+                        <select disabled=true name="State" id="selStateID" 
+						onchange=" toggleClearButton('selStateButton','selStateID');  populateCities();"  
+						oninput="clearError(this.id);"
+						onblur ="validateSelect(this.id);" required>
+                           <option disabled selected hidden value="">Select State</option>
+                           <!--<option value="Tamil Nadu">Tamil Nadu</option>
+                              <option value="Andhra">Andhra</option>
+                              <option value="Karnataka">Karnataka</option>-->
+                        </select>
+                        <button type="button" id="selStateButton" class="clear-button hidden" onclick="clearSelect('selStateID','selStateButton')">X</button>
+                     </div>
+                     <span id="error-selStateID" class="error-msg"></span>
+                  </td>
+                  <td>
+                     <label class="required">City</label><br>
+                     <div class="clearable-select-container ">
+                        <select disabled=true  name="City"  id="selCityID"  
+						onclick="toggleClearButton('selCityButton', 'selCityID'); " 
+ 
+						oninput="clearError(this.id);" 
+						onblur ="validateSelect(this.id);" required>
+                           <option selected hidden value="">Select City</option>
+                           <!-- <option value="Puducherry">Puducherry</option>
+                              <option value="Karaikal">Karaikal</option>
+                              <option value="Chennai">Chennai</option>-->
+                        </select>
+                        <button type="button" id="selCityButton" class="clear-button hidden" onclick="clearSelect('selCityID','selCityButton')">X</button>
+                     </div>
+                     <span id="error-selCityID" class="error-msg"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label class="required">Upload Marksheets</label><br>
+                     <input type="file" name="Marksheets"  id="FileID" accept=".pdf,.jpg,.jpeg,.png"
+					 onchange="fileValidation(this.id);"
+					 oninput="clearError(this.id);" 
+					 onblur="fileValidation(this.id);" required><br>
+                     <span id="error-FileID" class="error-msg"></span><br>
+                     <p id="size"></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3" align="right">
+                     <div class="button-container">
+                        <button type="button" class="button button1" onclick="checkInput(); ">Submit</button>
+                        <button type="reset" class="button button2" onclick="resetButton();">Reset</button>
+                        <button type="button" class="button button3">Close</button>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </form>
+      </div>
+      <div id="overlay"></div>
+      <div id="popupDialog">
+         <img id="tickImg" src="tick.png" alt="Image" class="image">
+         <h1 id="tq">Submitted!</h1>
+         <p id="ptagpop">Your details has been successfully submitted Thanks!</p>
+         <button id="tqbutton" onclick="closeFn()">
+         OK
+         </button>
+      </div>
+	<script>
+	
+
+
+			
+	 function handleEnterNavigation(event, nextFieldId) {
+         if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission on Enter key press
+           document.getElementById(nextFieldId).focus(); // Focus on the next field
+        }
+     }
+		
+
+		   
+	  function disable(elementID) {
+			  document.getElementById(elementID).disabled = true;
+		}
+
+		function enable(elementID) {
+		   document.getElementById(elementID).disabled = false;
+		}
+
+
+		function validateSelect(elementID) {
+		   let items = document.getElementById(elementID);
+		   
+		     if (items.value.trim() == "") {
+			  setError(items, "");
+		    }else if (!(items.value.trim() === "")) {
+			  //alert (elementID);
+
+			  switch (elementID) {
+				 case "selCtryID":
+					// alert (elementID);
+					
+					enable("selStateID");
+					populateStates();
+					
+					break;
+				 case "selStateID":
+					//alert(elementID)
+					enable("selCityID");
+					populateCities();
+					
+					break;
+			  }
+			  setError(items,"");
+			  //setSuccess(items);
+		   } else if (items.value.trim() !== "") {
+			  setSuccess(items);
+		   }
+		}
+
+		function isEmptyofGender(elementID) {
+		   let gender = document.getElementsByName(elementID);
+		   let genderSelected = false;
+
+		   for (let i = 0; i < gender.length; i++) {
+			  if (gender[i].checked) {
+				 genderSelected = true;
+				 break;
+			  }
+		   }
+
+		   let genderErrorSpan = document.getElementById("error-gender");
+		   if (!genderSelected) {
+			  genderErrorSpan.textContent = "";
+			  genderErrorSpan.classList.add("error-msg");
+		   } else {
+			  genderErrorSpan.textContent = "";
+			  // genderErrorSpan.classList.add("success-msg");
+			  genderErrorSpan.classList.remove("error-msg");
+		   }
+		}
+
+
+		function clearError(elementID) {
+		   let items = document.getElementById(elementID);
+
+		   if (items.value.trim() !== "") {
+			   setError(items,"");
+		   }
+		}
+
+		function resetButton() {
+		   document.getElementById("myForm").reset();
+		   let resetError = document.querySelectorAll(".error-msg");
+
+		   resetError.forEach(function (resetError) {
+			  resetError.textContent = "";
+		   });
+		}
+
+		function fileValidation(fileID) {
+		   let fileInput = document.getElementById(fileID);
+		   var allowedExtensions = /(\.pdf|\.jpg|\.jpeg|\.png)$/i;
+
+		   if (fileInput.files.length > 0) {
+			  for (var i = 0; i <= fileInput.files.length - 1; i++) {
+				 var fsize = fileInput.files.item(i).size;
+				 var file = Math.round(fsize / 1024); // file size in KB
+				 var filePath = fileInput.value;
+
+				 if (!allowedExtensions.exec(filePath)) {
+					setError(fileInput, "Please upload valid file type. Only PDF, JPG, JPEG, and PNG are allowed.");
+				 } else if (file >= 4096) {
+					setError(fileInput, `Please file size ${file}KB is too big, select a file < "4MB"`);
+					fileInput.value = '';
+				 }
+			  }
+		   } else {
+			  setError(fileInput, "");
+			 
+		   }
+		}
+
+			function RemoveExtraSpace(nameId) {
+			let name = document.getElementById(nameId);
+			let RemoveExtraSpace = name.value.trim().replaceAll(/\s+/g, ' ').toUpperCase();
+			document.getElementById(nameId).value = RemoveExtraSpace;
+			if (name.value.trim() == "") {
+				setError(name, "");
+				}
+			else 
+			{
+			switch (nameId) {
+				case "txtFName":
+				case "txtFtName":
+				     if (document.getElementById(nameId).value.trim().length < 2) {
+						setError(name, `Please ${document.getElementById(nameId).name} should be minimum of 2 characters`);
+					} else if (document.getElementById(nameId).value.trim() !== "") {
+						setSuccess(name);
+					}
+					break;
+				case "txtLname":
+				    if (document.getElementById(nameId).value.trim() !== "") {
+						setSuccess(name);
+					}
+					break;
+				case "txtArAddID":
+				  if (document.getElementById(nameId).value.trim().length < 20) {
+						setError(name, `Please ${document.getElementById(nameId).name} should be minimum of 20 characters`);
+					} else if (document.getElementById(nameId).value.trim() !== "") {
+						setSuccess(name);
+						}
+					break;
+			}
+			}
+		}
+
+		function EmailCheck() {
+		   let email = document.getElementById("emailID");
+		  
+		   var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
+		   if (email.value.trim() == "") {
+			  setError(email,"");}
+		   else if (!emailRegex.test(document.getElementById("emailID").value.trim())) {
+			  setError(email, "Please enter valid Email ID");
+		   } else if (email.value.trim() !== "") {
+			  setError(email,""); 
+			 // setSuccess(email);
+		   }
+		}
+		
+		function phoneNoValidationTenNumbers() {
+			let number = document.getElementById("stuContact");
+			//var phonePattern = /^[6-9]{1}[0-9]{9}$/;
+			//var phPattern = /^(?:\+91\s-\s?[6-9]\d{9}|\d{10})$/;
+			var newPattern= /^(\+91[\-\s]?)? ?-? ?[6789]\d{9}$/;
+			
+			if (number.value.trim() == "") {
+			   setError(number, "");
+			}
+			else if (number.value.trim().length < 10) {
+				setError(number, "Please enter valid Mobile Number");
+			} else if ((!newPattern.test(number.value))) {
+				setError(number, "Please enter valid Mobile Number");
+			} else {
+				if (number.value.trim() !== "") {
+					setSuccess(number);
+				}
+			}
+		}
+
+
+		function proofValidation() {
+			let idProof = document.getElementById("NumIDno");
+			var proofPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+			if (idProof.value.trim() == "") {
+			   setError(idProof, "");
+			}
+		   else if (!proofPattern.test(idProof.value.trim())) {
+			  setError(idProof, "Please enter valid Permanent Account Number");
+		   } else {
+			  if (idProof.value.trim() !== "") {
+				 setSuccess(idProof);
+			  }
+		   }
+		}
+		
+		    function capitalizeInput(input) {
+				
+				input.value = input.value.toUpperCase();
+			}
+
+		function setError(element, message) {
+		   var errorSpan = document.getElementById("error-" + element.id);
+		   errorSpan.textContent = message;
+		   errorSpan.classList.add("error-msg");
+		   //formFieldsValid = false;
+		}
+
+		function setSuccess(element) {
+		   var errorSpan = document.getElementById("error-" + element.id);
+		   errorSpan.textContent = "";
+		   // errorSpan.classList.add("success-msg");
+		   errorSpan.classList.remove("error-msg");
+		   //formFieldsValid = true;
+		}
+
+		function setMaxDateBeforeToday() {
+                const today = new Date();
+                today.setDate(today.getDate() - 1);  
+                const maxDate = today.toISOString().split('T')[0]; 
+                document.getElementById('stuDOBID').setAttribute('max', maxDate);
+
+        }
+
+		function formatDate() {
+		   var dobInput = document.getElementById("stuDOBID");
+		   var dateValue = dobInput.value;
+
+		   if (dateValue) {
+			  dobInput.type = 'text';
+			  dobInput.value = dateValue.split("-").reverse().join("/");
+		   }
+		}
+
+		function calculateAge(dobid) {
+           let dateofBirth = document.getElementById(dobid);
+		   var dobInput = dateofBirth.value;
+		   var [day, month, year] = dobInput.split("/");
+		   var dobFormatted = `${year}-${month}-${day}`;
+		   var dob = new Date(dobFormatted);
+		   var today = new Date();
+
+		   //let age = today.getFullYear() - dob.getFullYear();
+		   let ageMonths = today.getMonth()-dob.getMonth(); 
+		   let ageYears = today.getFullYear() - dob.getFullYear();
+				
+			 if(ageMonths < 0) {
+				ageMonths += 12;
+				ageYears--;
+            }
+			
+			let ageDays = today.getDate() - dob.getDate();
+			if (ageDays < 0) {
+				
+				//last day of previous month
+				let lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+				//console.log(lastMonth);
+				ageDays += lastMonth.getDate(); 
+				ageMonths--;
+				if (ageMonths < 0) {
+					ageMonths = 11;
+					ageYears--;
+				}
+           }
+
+			// Set the age in years, months, and days
+			document.getElementById("numAge").value = `${ageYears} years, ${ageMonths} months, ${ageDays} days`;
+		}
+
+		function checkInput() {
+		
+		   var formFieldsValid = true;
+		
+		   var firstName = document.getElementById("txtFName");
+		   var lastName = document.getElementById("txtLname");
+		   var fatherName = document.getElementById("txtFtName");
+		   var stuDOB = document.getElementById("stuDOBID");
+		   var age = document.getElementById("numAge");
+		   var email = document.getElementById("emailID");
+		   let gender = document.getElementsByName("Gender");
+		   var bloodGroup = document.getElementById("SelBgID");
+		   var degree = document.getElementById("selEduID");
+		   var mobile = document.getElementById("stuContact");
+		   var idProof = document.getElementById("NumIDno");
+		   var address = document.getElementById("txtArAddID");
+		   var country = document.getElementById("selCtryID");
+		   var state = document.getElementById("selStateID");
+		   var city = document.getElementById("selCityID");
+		   var fileInput = document.getElementById("FileID");
+
+		   // Validate First Name
+		   if (firstName.value.trim() == "") {
+			  setError(firstName, "First Name must be entered");
+			  formFieldsValid = false;
+		   }else if (firstName.value.trim().length < 2) {
+			   setError(firstName, "Please First Name should be minimum of 2 characters");
+			   formFieldsValid = false;
+			}
+		   else {
+			  setSuccess(firstName);
+		   }
+
+		   // Validate Last Name
+		   if (lastName.value.trim() == "") {
+			  setError(lastName, "Last Name must be entered");
+			  formFieldsValid = false;
+		   } 
+		   else {
+			  setSuccess(lastName);
+		   }
+
+		   // Validate Father Name
+		   if (fatherName.value.trim() == "") {
+			  setError(fatherName, "Father Name must be entered");
+			  formFieldsValid = false;
+		   } else if (fatherName.value.trim().length < 2) {
+			   setError(fatherName, "Please Father Name should be minimum of 2 characters");
+			   formFieldsValid = false;
+		   }else {
+			  setSuccess(fatherName);
+		   }
+
+		   // Validate DOB
+		   if (stuDOB.value.trim() == "") {
+			  setError(stuDOB, "DOB must be selected");
+			  formFieldsValid = false;
+		   } 
+		   
+		   else {
+			  setSuccess(stuDOB);
+		   }
+
+
+		   // Validate Email
+           var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
+		   if (email.value.trim() == "") {
+			  setError(email, "Email must be entered");
+			  formFieldsValid = false;
+		   }else if (!emailRegex.test(email.value.trim())) {
+			  setError(email, "Please enter valid Email ID");
+			  formFieldsValid = false;
+		   }
+		   else {
+			  setSuccess(email);
+		   }
+
+		   // Validate Gender
+		   let genderSelected = false;
+		   for (let i = 0; i < gender.length; i++) {
+			  if (gender[i].checked) {
+				 genderSelected = true;
+				 break;
+			  }
+		   }
+
+		   let genderErrorSpan = document.getElementById("error-gender");
+		   if (!genderSelected) {
+			  genderErrorSpan.textContent = "Gender must be selected";
+			  genderErrorSpan.classList.add("error-msg");
+			  formFieldsValid = false;
+		   } else {
+			  genderErrorSpan.textContent = "";
+			  //genderErrorSpan.classList.add("success-msg");
+			  genderErrorSpan.classList.remove("error-msg");
+		   }
+
+		   // Validate Blood Group
+		   if (bloodGroup.value == "") {
+			  setError(bloodGroup, "Blood Group must be selected");
+              formFieldsValid = false;
+		   } else {
+			  setSuccess(bloodGroup);
+		   }
+
+		   // Validate Edu Degree
+		   if (degree.value == "") {
+			  setError(degree, "Educational Qualification must be selected");
+			  formFieldsValid = false;
+		   } else {
+			  setSuccess(degree);
+		   }
+
+		   // Mobile Number Validation
+		   //var phonePattern = /^(?:\+91\s-\s?[6-9]\d{9}|\d{10})$/ ;
+		  // var phpattern = /^[6-9]{1}[0-9]{9}$/;
+	var mobilePattern = /^(\+91[\-\s]?)? ?-? ?[6789]\d{9}$/;
+		let concatNumber = mobile.value;
+		if (concatNumber === "") {
+			setError(mobile, "Mobile Number must be entered");
+			formFieldsValid = false;
+		} else if (!mobilePattern.test(concatNumber)) {
+			setError(mobile, "Please enter valid Mobile Number");
+			formFieldsValid = false;
+		} else {
+			setSuccess(mobile);
+		}
+		
+		   // ID Proof Validation
+		    var proofPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+
+			if (idProof.value.trim() == "") {
+			   setError(idProof, "Permanent Account Number must be entered");
+			   formFieldsValid = false;
+			}
+			  
+		   else if (!proofPattern.test(idProof.value.trim())) 
+		        {
+			  setError(idProof, "Please enter valid Permanent Account Number");
+			  formFieldsValid = false;
+			  }
+           else if (idProof.value.length < 10) {
+		      // alert("ID proof error");
+			  setError(idProof, "Please enter valid Permanent Account Number");
+			  formFieldsValid = false;
+			  
+			  }
+		else {
+			  setSuccess(idProof);
+		   }
+		    
+
+		   // Address Validation
+		   if (address.value.trim() == "") {
+			  setError(address, "Address must be entered");
+			  formFieldsValid = false;
+		   } else if(address.value.trim().length < 20){
+		         //alert(address.value.trim().length);
+		        setError(address, "Please Address should be minimum of 20 characters");
+				formFieldsValid = false;
+		   }else {
+		      
+			  setSuccess(address);
+		   }
+
+		   // Country Validation
+		   if (country.value == "") {
+			  setError(country, "Country must be selected");
+			  formFieldsValid = false;
+		   } else {
+			  setSuccess(country);
+		   }
+
+		   // State Validation
+		   if (state.value == "") {
+			  setError(state, "State must be selected");
+			  formFieldsValid = false;
+		   } else {
+			  setSuccess(state);
+		   }
+
+		   // City Validation
+		   if (city.value == "") {
+			  setError(city, "City must be selected");
+			  formFieldsValid = false;
+		   } else {
+			  setSuccess(city);
+		   }
+
+		   // File Validation
+		  
+		   //let fileInput = document.getElementById(fileID);
+		   var allowedExtensions = /(\.pdf|\.jpg|\.jpeg|\.png)$/i;
+
+		   if (fileInput.files.length > 0) {
+			  for (var i = 0; i <= fileInput.files.length - 1; i++) {
+				 var fsize = fileInput.files.item(i).size;
+				 var file = Math.round(fsize / 1024); // file size in KB
+				 var filePath = fileInput.value;
+
+				 if (!allowedExtensions.exec(filePath)) {
+					setError(fileInput, "Please upload valid file type. Only PDF, JPG, JPEG, and PNG are allowed.");
+				 } else if (file >= 4096) {
+					setError(fileInput, `Please file size ${file}KB is too big, select a file < "4MB"`);
+					fileInput.value = '';
+				 }
+			  }
+		   } else {
+			  setError(fileInput, "Marksheets must be uploaded");
+			  formFieldsValid = false;
+			 
+		   }
+		
+
+		    if (!formFieldsValid) {
+              event.preventDefault(); 
+              alert("Please Enter all the Fields");
+          } else {
+             if (confirm("Do you want to submit?")) {
+               // Submit form or trigger popup
+                popupFn();
+                resetButton();
+             } else {
+            event.preventDefault(); 
+          }
+       }
+    }
+
+		function clearSelect(selectId, clearButtonId) {
+		   var select = document.getElementById(selectId);
+		   select.selectedIndex = 0;
+		   document.getElementById(clearButtonId).classList.add('hidden');
+  
+		}
+
+		function toggleClearButton(clearButtonId, selectId) {
+		   var clearButton = document.getElementById(clearButtonId);
+		   var select = document.getElementById(selectId);
+		   for (let i = 0; i < select.length; i++) {
+			  if (select[i].selected) {
+				 valueSelected = true;
+				 break;
+			  }
+		   }
+
+		   //alert(select[i].value);
+		   if (valueSelected ) {
+		       
+			  clearButton.classList.remove("hidden");
+			  
+		   } else {            
+		       //alert("Hi");
+			  clearButton.classList.add("hidden");
+			  
+		   }
+		}
+
+		function popupFn() {
+		   document.getElementById("overlay").style.display = "block";
+		   document.getElementById("popupDialog").style.display = "block";
+		}
+
+		function closeFn() {
+		   document.getElementById("overlay").style.display = "none";
+		   document.getElementById("popupDialog").style.display = "none";
+		} 
+		</script> 
+		<script src = "myScriptDropdn.js" > </script>
+   </body>
+</html>
+<!--https://images.app.goo.gl/THF5B7C8NuyeSj7q9-->
