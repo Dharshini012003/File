@@ -1,0 +1,287 @@
+// (function sayHello()// invoke function
+// {
+//     console.log("Hello world");
+// })();
+
+//express function
+// const expFn   = function sayHello()
+// {
+//     console.log("Hello World are expression function");
+// }
+// expFn();
+
+//Anonymous function
+// const welcomeAll = function()
+// {
+//     console.log("hello friends welcome All!");
+// }
+// welcomeAll();
+
+//Arrow function
+//syntax
+// ()=>
+// {
+    
+// }
+// const greet = ()=>
+// {
+//     console.log("hello viewers!")
+// }
+// greet();
+
+//arrow function using single  arugument 
+
+// const square = (x)=>
+// {
+//     return x*x;
+// }
+// const result = square(5);
+// console.log(result)
+
+//Arrow function using multiple Arugument
+
+// const sum = ((a,b)=>
+// {
+//     return a + b;
+// })
+// console.log(sum(10,20));
+
+//Arrow function using object
+
+// const person ={
+//     firstName:"kumaresan",
+//     lastName:"shan",
+    
+//     // getFullName :()=>
+//     // {
+//     //     return person.firstName + " " + person.lastName;
+//     // },
+//     getFullName(){
+//         return this.firstName +" "+ this.lastName;
+//     }
+// };
+
+// console.log(person.getFullName());
+
+//returning object literal in arrow function
+// const mobileInfo=()=>
+// ({ id:1,
+//   Mobile_Modal:"samsung"
+// });
+// console.log(mobileInfo());
+
+// //setTimeout
+// setTimeout(()=>
+// {
+//     console.log("i am waiting 5 sec!")
+// },5000);
+
+//Promise
+
+// let takkalBooking = new Promise((resolve,reject)=>
+// {
+//     let bookingSeat = false
+//     if(bookingSeat)
+//     {
+//         resolve(850);
+//     }
+//     else{
+//         reject();
+//     }
+// });
+// takkalBooking.then((amt)=>console.log(`thank you for booking train ticket ! ticket price is ${amt}`))
+// .catch(()=>console.log("sorry ! train ticket not avaiable, please book bus"))
+
+//promise decalred function
+
+// function takkalBook()
+// {
+//     return new Promise((resolve, reject)=>
+//     {
+//         let bookingSuccess = true;
+//         if(bookingSuccess)
+//         {
+//          resolve()
+//         }
+//         else
+//         {
+//             reject()
+//         }
+//     });
+// }
+// takkalBook().then(()=> console.log("Thank you for booking ticket"))
+// .catch(()=> console.log("Tain ticket not avaiable! please book the bus"))
+
+
+// promise static - all, allsettled, any, race
+
+let reachA = new Promise((resolve, reject)=>
+{
+    const reached = false
+    if(reached)
+    {
+        setTimeout(resolve,3000,"kumaresan Reached");
+    }
+    else
+    {
+        reject ("kumaresan not reached")
+    }
+})
+
+let reachB = new Promise((resolve, reject)=>
+{
+    const reached = false
+    if(reached)
+    {
+        setTimeout(resolve,1000,"Jaya Reached");
+    }
+    else
+    {
+        reject ("Jaya not reached")
+    }
+})
+
+let reachC = new Promise((resolve, reject)=>
+{
+    const reached = false
+    if(reached)
+    {
+        setTimeout(resolve,2000,"Lakshmi reached");
+    }
+    else
+    {
+        reject ("Lakshmi not reached")
+    }
+})
+
+Promise.all([reachA,reachB,reachC]) //collect all result in array format //all promise fullfill output is all true otherwise one condition is false output show the false resluts
+.then((message)=> console.log(message))
+.catch((message)=> console.log(message))
+
+// Promise.allSettled([reachA,reachB,reachC])
+// .then((message)=> console.log(message))
+// .catch((message)=>console.log(message))
+
+// Promise.any([reachA,reachB,reachC]) // all condition true  means first condition show the output //all condition false means all promise rejected
+// .then((message)=> console.log(message))
+// .catch((message)=>console.log(message))
+
+// Promise.race([reachA,reachB,reachC])// check all condition true means first show first true value // all condition is false  first promise show in output
+// .then((message)=> console.log(message))
+// .catch((message)=>console.log(message))
+
+//try and catch
+
+// try{
+//     num = prompt("enter the number")
+//     if(num==="")
+//     throw "cannot a empty"
+//     if(isNaN(num))
+//     throw "enter the vaild number"
+//     console.log(num**2)
+// }
+// catch(error){
+//     console.log(error)
+// }
+
+//async, await, asynchronous javascript
+
+// async function fn()
+// {
+//     return "hello"
+// }
+// console.log(fn())
+// fn().then((msg)=>console.log(msg))
+//     .catch((msg)=> console.log(msg))
+
+
+// let reachA = new Promise((resolve, reject)=>
+// {
+//     const reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,3000,"kumaresan Reached");
+//     }
+//     else
+//     {
+//         reject ("kumaresan not reached")
+//     }
+// })
+//  let reachB = new Promise((resolve, reject)=>
+// {
+//     const reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,1000,"Jaya Reached");
+//     }
+//     else
+//     {
+//         reject ("Jaya not reached")
+//     }
+// })
+// let reachC = new Promise((resolve, reject)=>
+// {
+//     const reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,2000,"Lakshmi reached");
+//     }
+//     else
+//     {
+//         reject ("Lakshmi not reached")
+//     }
+// })
+// async function asyncstatus()
+// { 
+//     try{
+//     console.log("hi")
+//     res = await reachA
+//     console.log(res)
+//     reachs = await reachB
+//     console.log(reachs)
+//     reachss = await reachC
+//     console.log(reachss)
+//     console.log("bye")
+    
+    
+//     }
+    
+//     catch(error)
+//     {
+//         console.log(error)
+//     }
+// }
+// console.log(asyncstatus())
+
+// async function fn()
+// {
+//     return "hello"
+// }
+// fn().then((msg)=>console.log(msg));
+
+
+// let reachA = new Promise((resolve, reject)=>
+// {
+//     const reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,3000,"kumaresan Reached");
+//     }
+//     else
+//     {
+//         reject ("kumaresan not reached")
+//     }
+// })
+
+// async function asyncFn()
+// {
+//   try{
+//     const res = await reachA
+//     console.log(res)
+//   } 
+//   catch(error)
+//   {
+//       console.log(error)
+//   }
+// }
+// asyncFn()

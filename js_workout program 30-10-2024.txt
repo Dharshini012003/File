@@ -1,0 +1,262 @@
+// // closure simple function
+// function outer()
+// {
+//  let b=10
+// function inner()
+// { 
+//     let a = 5
+//   console.log(a+b);
+// }
+// return inner
+// }
+// let someFn = outer()
+// someFn()
+
+// // closure
+
+// // let myName = "kumaresan" // global scope
+
+// // function outerFunction()
+// // {
+// //     console.log("accessing global scope", myName)
+    
+// // const innerFunction =()=>
+// //     {
+// //         console.log("can i access? function scope?")
+// //         const myLastName= "shanmugam" // local scope
+// //     }
+// // }
+// // outerFunction()
+
+// //outer function value acces in inner function
+// // function outerFunction()
+// // {
+// //     const localValue = "something something"
+// //     console.log("accessing global scope")
+    
+// // const innerFunction =()=>
+// //     {
+// //         console.log("can i access function scope?", localValue)
+// //         const myLastName= "shanmugam" // local scope
+// //     }
+// //     innerFunction()
+// // }
+// // outerFunction()
+
+// //Outer function access inner function
+// //Inner function acces return value
+// // function outerFunction(outerValue)
+// // {
+    
+// // function innerFunction(innerValue)
+// //     {
+// //         console.log("Outside Scope", outerValue)
+// //       console.log("Inside Scope", innerValue)
+// //     }
+// //     innerFunction("Inside Value")
+// // }
+// // outerFunction("Outside value")
+
+// // function kula inoru function
+// // function outerFunction(outerValue,innerValue)//pass the arugment 'innerValue'
+// // {
+    
+// // function innerFunction(innerValue)
+// //     {
+// //         console.log("Outside Scope", outerValue)
+// //       console.log("Inside Scope", innerValue)
+// //     }
+// //     innerFunction(innerValue) // calling the innerValue
+// // }
+// // outerFunction("Outside value","inside Value") // second parameter is "inside Value"
+
+
+// // innerFunction return value 
+
+
+// function outerFunction(outerValue,innerValue)
+// {
+    
+// function innerFunction(innerValue)
+//     {
+//         console.log("Outside Scope =", outerValue)
+//       console.log("Inside Scope =", innerValue)
+//     }
+//     return innerFunction
+// }
+
+// const func = outerFunction("Outside value") 
+// func ("Inside Value")
+
+
+// // if (Math.random() > 0.5) {
+// //  console.log(Math.random())
+// //   var x = 1;
+// // } else {
+// //   var x = 2;
+// // }
+// // console.log(x);
+
+
+// function Points (totalPointing)
+// {
+//     console.log("outside Function Runing")
+//     const totalPoint = totalPointing;
+    
+//     const addPoint = (Points)=>
+//     {
+//         return totalPoint + Points;
+//     }
+//     const removePoint =(Points)=>
+//     {
+//         return totalPoint- Points
+//     }
+//     const getTotalPoint=()=>
+//     {
+//         return totalPoint
+//     }
+//     return{addPoint, removePoint, getTotalPoint}
+// }
+// const table = Points(100)
+// console.log(table.addPoint(40))
+// console.log(table.removePoint(20))
+// console.log(table.getTotalPoint())
+
+// //Async //Await
+
+// let promise = new Promise((resolve,reject)=>
+// {
+//     setTimeout(()=>{
+//     let user = {userName:"kumaresan", age:29};
+//     if(Object.keys(user)!==0)
+//     {
+//          resolve(user)
+        
+//     }
+//     else
+//     {
+//         reject(user)
+//     }
+//         },3000)
+   
+// })
+
+// async function getUser()
+// {
+//     const userInfo = await promise
+//     console.log(userInfo)
+// }
+// getUser()
+
+// //async and Await
+
+// let reach = new Promise((resolve,reject)=>
+// {
+//     let reached = false
+//     if(reached)
+//     {
+//       setTimeout(resolve,3000,"kumaresan reached")
+//     }
+//     else
+//     {
+//         reject("kumaresan not reached")
+//     }
+// })
+
+// async function asyncFn()
+// {
+//     try{
+//         const newReach = await reach
+//         console.log(newReach)
+//       }
+//     catch(error)
+//     {
+//     console.log(error)
+//     }
+   
+// }
+// asyncFn()
+
+//promise
+
+let ticketBook = new Promise((reslove,reject)=>
+{
+    let booking =true
+    if(booking)
+    {
+        reslove()
+    }
+    else
+    {
+        reject()
+    }
+})
+
+ticketBook.then(()=>console.log("thank you for booking ticket"))
+          .catch(()=>console.log("sorry ticket not avaiable! please book bus"))
+
+//Promise All, allsettled, any, Race
+
+let reachA = new Promise((resolve,reject)=>
+{
+    let reached = true
+    if(reached)
+    {
+      setTimeout(resolve,3000,"kumaresan reached")
+    }
+    else
+    {
+        reject("kumaresan not reached")
+    }
+})
+
+let reachB = new Promise((resolve,reject)=>
+{
+    let reached = false
+    if(reached)
+    {
+      setTimeout(resolve,2000,"Jaya reached")
+    }
+    else
+    {
+        reject("Jaya not reached")
+    }
+})
+let reachC = new Promise((resolve,reject)=>
+{
+    let reached = true
+    if(reached)
+    {
+      setTimeout(resolve,1000,"deva reached")
+    }
+    else
+    {
+        reject("deva not reached")
+    }
+})
+
+// Promise.all([reachA, reachB, reachC]) //all promise fullfill
+// .then((msg)=>console.log(msg))//reject any of promise reject
+// .catch((msg)=>console.log(msg))
+
+// Promise.allSettled([reachA, reachB, reachC])
+// .then((msg)=>console.log(msg))
+// .catch((msg)=>console.log(msg))
+
+// Promise.any([reachA, reachB, reachC])
+// .then((msg)=>console.log(msg))
+// .catch((msg)=>console.log(msg))
+
+Promise.race([reachA, reachB, reachC])
+.then((msg)=>console.log(msg))
+.catch((msg)=>console.log(msg))
+
+
+
+
+
+
+
+
+
+

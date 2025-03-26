@@ -1,0 +1,447 @@
+// Array filter 
+
+const users =
+    [
+    {id:1, name:'kumaresan', active:true},
+    {id:2, name:'jaya', active:true},
+    {id:3, name:'lakshmi', active:false},
+    ]
+    const person = users.filter((val)=>{ //call the variable  name 'users'// filter is predicate return true or false, //filter call 
+        return val.active==true; // call value so we can use val.active==true -- true or false give the value of output
+    });
+    console.log(person);
+  
+
+
+// Array filter
+
+const personName =['kumaresan','jayalakshmi','Meenakshi','shan']
+const getValue = personName.filter((name)=>
+{
+    return name.length>=5; // it give true or false value return output
+    
+});
+console.log(getValue);  
+
+//array from
+const names='kumaresan';
+const results =Array.from(names) // From string to convert the array
+console.log(results);
+
+//array of
+const arrayOf = Array.of("kumaresan",29,true);// Array of is primitive type eg string, number, boolean, convert to Array
+console.log(arrayOf);
+
+//array join
+// array join is join the all element 
+const personDetail = ['kumaresan','shan',29,true]
+console.log(personDetail.join("  "));
+
+//array keys
+
+// const fruits =['apple','banana','cherry','grapes'];
+// const arrayKeys = fruits.keys();
+// console.log(arrayKeys);
+
+const fruits =['apple','banana','cherry','grapes'];
+const arrayKeys = fruits.keys();
+for (const fruits of arrayKeys)
+console.log(fruits); 
+
+
+//array reduce 
+//accumulator (meaning saving) single value based on the element
+const customerSpendAmount = [0,450,80,520,720,1252];//left -> right
+const resultss = customerSpendAmount.reduce((prevVal,currentVal)=>
+{
+    console.log(prevVal,currentVal);//prevVal is accumulator//current value
+    return prevVal + currentVal; //0+450 =450//450+80=530//530+520=1050//1050+720=1770//1770 + 1252 = 3022
+},0)
+
+console.log(resultss);
+
+//array ReduceRight
+const customerSpendAmount = [0,450,80,520,720,1252];//right <- to left calculate value
+const resultss = customerSpendAmount.reduceRight((prevVal,currentVal)=>
+{
+    console.log(prevVal,currentVal);//prevVal is accumulator//current value
+    return prevVal + currentVal; //0+1252,1252+720=1972, 1972+520=2492, 2492+80=2572, 2572+450= 3022,0+3022 =3022
+},0)
+
+console.log(resultss);
+
+//Array reverse
+// array element can reverse original element 
+// const frutis =['Apple', 'Banana', 'Cherry', 'Grapes'];
+// const arrayReverse = car.reverse(); 
+// console.log(arrayReverse);
+
+// array toReversed
+//array toReversed does not affect original
+// const frutis =[ 'Grapes', 'Cherry', 'Banana', 'Apple' ];
+// const arrayReverse = car.toReversed(); 
+// console.log(arrayReverse);
+
+//array some
+//used to test whether at least one element
+//Array some, it check all condition of the index
+const userInfo =[
+    {id:1, Name:'kumaresan', active:true},
+    {id:2, Name:'jayalakshmi', active:true},
+    {id:3, Name:'kumaresh', active:false},
+    ]
+const arraySome = userInfo.some((con)=>
+{
+    return con.active == true; 
+});
+console.log(arraySome);
+
+//Array Every
+//used to test whether all element in the array
+// it check first array of element  if condition 25>50 false outup will be false
+const number=[25,55,40,56,80]
+const testNumber = number.every((sum)=>
+{
+    return sum>50;
+});
+console.log(testNumber);
+
+//Array sort
+// array sort orderwise 
+// const fruitss = ['banana','grapes','apple','cherry',]
+// const arraySort = fruitss.sort();
+// console.log(arraySort);
+
+// const numbers =[2,5,26,45,58,60] 
+// const numberSort = numbers.sort((a,b)=> a-b);//[ 2, 5, 26, 45, 58, 60 ]
+// console.log(numberSort);
+
+//Array sort orderwise number using formula (a,b) => a-b
+// const numbers =[2,5,26,45,58,60]
+// const numberSort = numbers.sort((a,b)=>b-a);//[ 60, 58, 45, 26, 5, 2 ]
+// console.log(numberSort);
+
+//Array toSorted
+// const numbers =[2,5,26,45,58,60]
+// const numberSort = numbers.toSorted((a,b)=>b-a);//[ 60, 58, 45, 26, 5, 2 ]
+// console.log(numberSort);
+
+ //Array toLocaleString
+ const myCurrency = 4556789
+ const myCurrencyIn =myCurrency.toLocaleString('hi-IN',{
+     currency:'INR'
+ });
+console.log(myCurrencyIn)
+
+//Array to string
+// array can convert to string
+const namess = ['k','u','m','a','r','e','s','a','n',29,true]
+console.log(namess.toString().replaceAll(',',', '))
+
+//Array with
+// const arr = [1,2,3,4]
+// console.log(arr.with(2,'three'))
+
+//callback function
+
+setTimeout(()=>
+{
+    console.log('Im running 3 sec');
+},3000)
+    
+ const myCallback =()=>
+ {
+     console.log('Im running 3 sec');
+ }
+setTimeout(myCallback,3000);
+
+
+// // Array filter 
+
+// const users =
+//     [
+//     {id:1, name:'kumaresan', active:true},
+//     {id:2, name:'jaya', active:true},
+//     {id:3, name:'lakshmi', active:false},
+//     ]
+//     const person = users.filter((val)=>{ //call the variable  name 'users' filter is predicate return true or false, filter call 
+//         return val.active==true; // call value so we can use val.active==true -- true or false give the value of output
+//     });
+//     console.log(person);
+    
+// // Array filter
+
+// const personName =['kumaresan','jayalakshmi','Meenakshi','shan']
+// const getValue = personName.filter((name)=>
+// {
+//     return name.length>=5; // it give true or false value return output
+    
+// });
+// console.log(getValue);
+
+// //array from
+// const names='kumaresan';
+// const results =Array.from(names) // From string to convert the array
+// console.log(results);
+
+// //array of
+// const arrayOf = Array.of("kumaresan",29,true);// Array of is primitive type eg string, number, boolean, convert to Array
+// console.log(arrayOf);
+
+// //array join
+// // array join is join the all element 
+// const personDetail = ['kumaresan','shan',29,true];
+// console.log(personDetail.join("  "));
+
+// //array keys
+
+// // const fruits =['apple','banana','cherry','grapes'];
+// // const arrayKeys = fruits.keys();
+// // console.log(arrayKeys);
+
+// const fruits =['apple','banana','cherry','grapes'];
+// const arrayKeys = fruits.keys();
+// for (const fruits of arrayKeys)
+// console.log(fruits); 
+
+// //array reduce 
+// //accumulator (meaning saving) single value based on the element
+// // const customerSpendAmount = [0,450,80,520,720,1252];//left -> right calculate value
+// // const resultss = customerSpendAmount.reduce((prevVal,currentVal)=>
+// // {
+// //     console.log(prevVal,currentVal);//prevVal is accumulator//current value
+// //     return prevVal + currentVal; //0+450 =450//450+80=530//530+520=1050//1050+720=1770//1770 + 1252 = 3022
+// // },0)
+
+// // console.log(resultss);
+
+// //array ReduceRight
+// const customerSpendAmount = [0,450,80,520,720,1252];//right <- to left calculate value
+// const resultss = customerSpendAmount.reduceRight((prevVal,currentVal)=>
+// {
+//     console.log(prevVal,currentVal);//prevVal is accumulator//current value
+//     return prevVal + currentVal; //0+1252,1252+720=1972, 1972+520=2492, 2492+80=2572, 2572+450= 3022,0+3022 =3022
+// },0)
+
+// console.log(resultss);
+
+// //Array reverse
+// // array element can reverse original element 
+// // const frutis =['Apple', 'Banana', 'Cherry', 'Grapes'];
+// // const arrayReverse = car.reverse(); 
+// // console.log(arrayReverse);
+
+// // array toReversed
+// //array toReversed does not affect original
+// // const frutis =[ 'Grapes', 'Cherry', 'Banana', 'Apple' ];
+// // const arrayReverse = car.toReversed(); 
+// // console.log(arrayReverse);
+
+// //array some
+// //used to test whether at least one element
+// //Array some, it check all condition of the index
+// const userInfo =[
+//     {id:1, Name:'kumaresan', active:true},
+//     {id:2, Name:'jayalakshmi', active:true},
+//     {id:3, Name:'kumaresh', active:false},
+//     ]
+// const arraySome = userInfo.some((con)=>
+// {
+//     return con.active == true; 
+// });
+// console.log(arraySome);
+
+// //Array Every
+// //used to test whether all element in the array
+// // it check first array of element  if condition 25>50 false outup will be false
+// const number=[25,55,40,56,80]
+// const testNumber = number.every((sum)=>
+// {
+//     return sum>50;
+// });
+// console.log(testNumber);
+
+// //Array sort
+// // array sort orderwise 
+// // const fruitss = ['banana','grapes','apple','cherry',]
+// // const arraySort = fruitss.sort();
+// // console.log(arraySort);
+
+// // const numbers =[2,5,26,45,58,60] 
+// // const numberSort = numbers.sort((a,b)=> a-b);//[ 2, 5, 26, 45, 58, 60 ]
+// // console.log(numberSort);
+
+// //Array sort orderwise number using formula (a,b) => a-b
+// // const numbers =[2,5,26,45,58,60]
+// // const numberSort = numbers.sort((a,b)=>b-a);//[ 60, 58, 45, 26, 5, 2 ]
+// // console.log(numberSort);
+
+// //Array toSorted
+// // const numbers =[2,5,26,45,58,60]
+// // const numberSort = numbers.toSorted((a,b)=>b-a);//[ 60, 58, 45, 26, 5, 2 ]
+// // console.log(numberSort);
+
+//  //Array toLocaleString
+//  const myCurrency = 4556789
+//  const myCurrencyIn =myCurrency.toLocaleString('hi-IN',{
+//      currency:'INR'
+//  });
+// console.log(myCurrencyIn)
+
+// //Array to string
+// // array can convert to string
+// const namess = ['k','u','m','a','r','e','s','a','n',29,true]
+// console.log(namess.toString().replaceAll(',',', '))
+
+// //Array with
+// // const arr = [1,2,3,4]
+// // console.log(arr.with(2,'three'))
+
+// //callback function
+   // function getvalue( value) {
+    //     console.log( value,"^^^^^^^^^^^^^^^^^^")
+    // }
+    
+    // function setvalue(getvalue){
+    //     let value = 66+ 77
+    //     getvalue(value)
+    // }
+    
+    
+    // setvalue(getvalue)
+    
+
+// // setTimeout(()=>
+// // {
+// //     console.log('Im running 3 sec');
+// // },5000)
+    
+// // function myCaller(name)
+// // {
+// //   console.log("hello kumaresan") ;
+// // }
+// // myCaller();
+// //     const myCallback =()=>
+// //  {
+// //      console.log('hi kumaresan i am software developer, how can i help u');
+// //  }
+// // setTimeout(myCallback,3000);
+// // const myCallbacks =()=>
+// //  {
+// //      console.log('You will be alright! take care these medicines.takecare');
+// //  }
+// // setTimeout(myCallbacks,6000);
+
+// // callback function setTimeout  in the function
+// // function greetUser(name)
+// // {
+// //     const myName = name.toUpperCase()
+// //     console.log(' my name is ' + myName);
+  
+    
+// //     setTimeout(()=>
+// //     {
+// //       console.log(' GoodBye ' + myName);
+// //     },3000)
+// // }
+// // greetUser('kumaresan');
+
+// function greetHandler(myName)
+// {
+//     console.log('GoodBye '+ myName);
+// }
+// function greetUser(name)
+// {
+//     const myName = name.toUpperCase();
+//     console.log('my name is ' + myName);
+    
+//     setTimeout(greetHandler, 3000 ,myName);
+// }
+// greetUser('kumaresan');
+    
+    // function greetHandler(myName)
+    // {
+    //     setTimeout(()=>
+    //     {
+    //         console.log('Good Bye ' + myName)
+    //     },3000);
+    // }
+    // function greetUser(name,callback)
+    // {
+    //     const myName = name.toUpperCase()
+    //     console.log('my name is ' + myName)
+    //     callback(myName)
+    // }
+    // greetUser('kumaresan',greetHandler)
+        
+//   function greet(name, callback)
+//   {
+//       console.log('hello'+ name)
+//       callback()
+//   }
+//     function sayGood()
+//     {
+//         console.log('GoodBye')
+//     }
+//     greet("kumar",sayGood)
+    
+   
+    function handlerGood()
+    {
+        setTimeout(()=>
+        {
+            console.log('D: Hi kumar i am doctor suresh how can i help you?')
+        },3000)
+        
+         setTimeout(()=>
+        {
+            console.log('D: you will be alright! take these medicines. take care')
+        },5000)
+       
+    }
+    function greetUser(name,callback)
+    {
+        setTimeout(()=>
+        {
+        console.log('U: Hello ' + name)
+        },2000)
+         callback()
+    }
+    greetUser('kumaresan',handlerGood)
+    
+    // Array call back function
+    const number =[1,2,3,4,5,6]
+    const callNum = number.forEach((sum)=>
+    {
+        console.log('current item',sum*2); //this called call back function  in array - for, filter, Map
+    })
+ 
+    
+//Array every
+ //check first index  6>20 condition false output is false
+  const greatNums =[6,5,2,30]
+ const greats = greatNums.every((nums)=>
+ {
+     return nums > 20; //30>20 condition true
+ });
+ console.log(greats);
+    
+//reduce
+
+const getSumVal=[14,15,16,17,18]
+const getResult = getSumVal.reduce((prevVal,currentVal)=>
+{
+    console.log(prevVal);
+    return prevVal + currentVal;
+},0);
+console.log(getResult);    
+
+//inculde
+// returns true if an array contains a specified value
+// false if the value is not found
+ const  nums = [10,25,30,15]
+ console.log(nums.includes(25));
+ 
+ const personName =['Kumar','Jaya','Meena']
+ console.log(personName.includes('Jaya'))
+ 

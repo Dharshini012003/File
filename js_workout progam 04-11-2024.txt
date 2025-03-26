@@ -1,0 +1,132 @@
+  const person={
+      firstName:"kumaresan",
+      lastName:"shan",
+      age:"29",
+      
+      parent:{
+          fatherName:"shanmugam",
+          motherName:"Meena",
+      },
+      
+     personDetail(){
+          return `${this.firstName}  ${this.lastName}`
+      },
+  }
+//object destructing 
+// const{old name:new name ,properties}= object
+// object destructing variable name change panalam eg(const {firstName:myFirstName}=person)
+  const {firstName:myFirstName,lastName:myLastName,age, favourColor="green",... remainingDetialPerson} = person;
+  console.log(myFirstName,myLastName, age, favourColor,remainingDetialPerson);
+// function personDetail(personObj)
+// {
+//     console.log(`hello my name is ${personObj.firstName} ${personObj.lastName} my age is ${personObj.age} my favour color ${personObj.favourColor}`)
+// }
+// personDetail(person)
+
+function personDetail({firstName, lastName, age, favourColor})
+{
+    console.log(`hello my name is ${firstName} ${lastName} my age is ${age} my favour color ${favourColor}`)
+}
+personDetail(person)
+
+// 1.Basic Array destructing 
+
+// const [science, social, maths]=[50,60,40]
+
+// console.log("Science",science);
+// console.log("Social",social);
+// console.log("Maths",maths)
+  
+ //2. Handling undefined elements;
+ 
+//  const [physics,chemistry,maths] = [50,60]
+//  console.log(physics,chemistry,maths)
+  
+  //3.Skipping Elements we can use (,,)
+//   const [physics,,maths] = [50,60,70]
+//   console.log("physics",physics,"maths",maths)
+  
+//  //4. Discarding Extra elements (70 extra element )
+// const [physics,chemistry] = [50,60,70]
+// console.log("physics",physics,"chemistry",chemistry)
+
+ //5. Default Values 
+// const [name] = ["Anbu"]
+// console.log(name)
+//or
+// const [name="shan"] = []
+// console.log(name);
+//or
+// const [name="shan"]=["kums"]
+// console.log(name)
+  
+  //6. Rest System
+//   const [one,two, three, ...remainingNo] = [1,2,3,4,5,6,7,8,9]
+//   console.log(one,two,three,remainingNo);
+
+//7 swapping variable
+
+// let a= 20;
+// let b= 40;
+// [a,b]= [b,a]
+// console.log(a,b)
+
+//8. Nesting Array destructing
+// const [one,two,[three,four],five,[six,seven,eight]]
+// = [1,2,[3,4],5,[6,7,8],];
+// console.log(one,two,three,four,five,six,seven,eight)
+//or
+// const [one,two,[three,four],five] = [1,2,[3,4],5]
+// console.log(one,two,three,four,five)
+
+//9. function Destructing on function
+
+// function getFullName()
+// {
+//     return["kumaresan","shan"]
+// }
+// const [firstName,lastName] = getFullName()
+// console.log(firstName, lastName)
+
+//10. Destructing on loops
+
+const myTeam = [
+["kumaresan","shan","kumaresan@gmail.com"],
+["jaya","lakshmi","jaya@gmail.com"],
+];
+for (let team of myTeam)
+{
+    console.log(team);
+}
+
+const userDetail=[
+    {
+        id:1,
+        name:"kumaresan",
+        isAlive:true,
+    },
+    {
+        id:2,
+        name:"jaya",
+        isAlive:true,
+    },
+    {
+        id:3,
+        name:"arun",
+        isAlive:false,
+    },]
+  
+const [kumaresan,jaya,arun] =userDetail;
+console.log(kumaresan.name)
+console.log(jaya.name)
+console.log(arun.name)
+
+//
+const response ={
+    status:200,
+    data:["apple","banana","orange"]
+}
+// console.log(response.data)
+const[fruits1,fruits2,fruits3] = response.data
+console.log(fruits1,fruits2,fruits3)
+    

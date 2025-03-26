@@ -1,0 +1,357 @@
+// //Arrow function
+
+// //function decalartion
+
+// function sayHello()
+// {
+//   console.log("hello")
+// }
+// sayHello()
+
+// //function expression
+// const func = function expfun()
+// {
+//   console.log("Hello Viewers")
+// }
+// func()
+
+// // function anonymous
+
+// const anonFn = function()
+// {
+//     console.log("hello world are anonymous function")
+// }
+// anonFn()
+
+// //Arrow function
+
+// const greet = ()=>
+// {
+//     console.log("hello world")
+// }
+// greet()
+
+// // Arrow function with single arugment
+// const square = (x)=>
+// {
+//     return x * x;
+// }
+// console.log(square(10))
+
+// // Arrow function with multiple arugment
+
+// const sum = (a,b)=>
+// {
+//     return a+b;
+// }
+// console.log(sum(10,15))
+
+// //arrow function using array callback map
+
+// const sqr = [2,5,3,8,10,20]
+// const result =sqr.map((num)=>
+// {
+//  return num * num
+// })
+// console.log(result)
+
+// // arrow function using array callback forEach
+
+// const person = ['kumaresan','kumar','jaya']
+// const detail = person.forEach((print)=>
+// console.log(print.toUpperCase()))
+ 
+//  // arrow function using array callback filter
+// const persons = ['kumaresan','Shan','jaya']
+// const details = persons.filter((val)=>
+// {
+//   return val.length > 3 
+// })
+// console.log(details)
+
+// // function uisng object
+// const per={
+//     firstName:"kumaresan",
+//     lastName:"kumar",
+//     age:29,
+     
+//     getFullName:() =>
+//     {
+//         return per.firstName + " " + per.lastName +" "+ per.age
+//     },
+// }
+// console.log(per.getFullName())
+
+// // function with object literals
+
+// // const mobileDetail = ()=>
+// // ({
+// //   id:1,
+// //   mobileModal:"samsung",
+// // });
+// // console.log(mobileDetail())
+
+//immedialty invoke
+
+// (function yesHi()
+// {
+//     console.log("Hi dude");
+// })();
+
+// (function sayHello()// invoke function
+// {
+//     console.log("Hello world");
+// })();
+
+//callback
+
+// function offerPrice(name)
+// {
+//     setTimeout(()=>{
+//         console.log("Diwali Offer in " + name)
+        
+//     },3000)
+    
+//     setTimeout(()=>
+//     {
+//         console.log("Buy one get one Offer in " + name)
+//     },4000)
+// }
+
+// function offerDetails(callback)
+// {
+//     console.log("Order Now")
+//     callback("Jk Bangles")
+// }
+// offerDetails(offerPrice)
+
+// //callback chaning
+// // function first(callback)
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("i am runing 1 sec")
+// //     },1000)
+// //     callback()
+// // }
+// // function second(callback)
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("i am runing 2 sec")
+// //     },2000)
+// //     callback()
+// // }
+    
+
+// // function third()
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("i am runing 3 sec")
+// //     },3000)
+// // }
+
+// // first(()=>second(()=>third()))
+
+// //callback function in  map Array
+
+// const maxNum = [25,10,50,60,100]
+// const results = maxNum.map((maxs)=>
+// {
+//  return maxs * 10
+// })
+// console.log(results)
+
+
+// //callback function in filter Array
+// const information = 
+// [
+// {firstName:'kumaresan',lastName:'kumar', isStudent:true},
+// {firstName:'Jaya',lastName:'Lakshmi' ,isStudent:true},
+// {firstName:'ram',lastName:'kumar', isStudent:false}
+// ]
+// const dataResult = information.filter((val)=>
+// {
+//     return val.isStudent == true;
+// })
+// console.log(dataResult)
+ 
+// //promise
+// //ticket booking in takkal
+
+// let takkalBook = new Promise((resolve,reject)=>
+// {
+//     let ticketBook = true
+//     if(ticketBook)
+//     {
+//         resolve(850)
+//     }
+//     else
+//     {
+//         reject()
+//     }
+// })
+
+// takkalBook.then((amt)=>console.log(`Thank you! booking ticket i will transfer amount ${amt}`))
+//           .catch(()=>console.log("sorry ticket not avaiable i will book bus "))
+          
+//Promise all, allSettled, any , race
+
+// let reachA = new Promise((resolve,reject)=>
+// {
+//     let reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,3000,"kumaresan reached")
+//     }
+//     else
+//     {
+//       reject("kumaresan not reached") 
+//     }
+// })
+// let reachB = new Promise((resolve,reject)=>
+// {
+//     let reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,2000,"Jaya reached")
+//     }
+//     else
+//     {
+//       reject("jaya not reached") 
+//     }
+// })
+
+// let reachC = new Promise((resolve,reject)=>
+// {
+//     let reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,1000," Lakshmi reached")
+//     }
+//     else
+//     {
+//       reject("Lakshmi not reached") 
+//     }
+// })
+
+// Promise.all ([reachA, reachB, reachC])
+// .then((msg)=> console.log(msg))
+// .catch((msg)=> console.log(msg))
+
+// Promise.allSettled ([reachA, reachB, reachC])
+// .then((msg)=> console.log(msg))
+// .catch((msg)=> console.log(msg))
+
+// Promise.any ([reachA, reachB, reachC])
+// .then((msg)=> console.log(msg))
+// .catch((msg)=> console.log(msg))
+
+// Promise.race ([reachA, reachB, reachC])
+// .then((msg)=> console.log(msg))
+// .catch((msg)=> console.log(msg)) 
+
+
+//Async // Await 
+// let reachA = new Promise((resolve,reject)=>
+// {
+//     let reached = true
+//     if(reached)
+//     {
+//         setTimeout(resolve,3000,"kumaresan reached")
+//     }
+//     else
+//     {
+//       reject("kumaresan not reached") 
+//     }
+// })
+
+// async function asynFn()
+// {   
+//     try{
+//     console.log("Hi")
+//     const res = await reachA
+//     console.log(res)
+//     console.log("Bye")
+//     }
+//     catch(error)
+//     {
+//         console.log(error)
+//     }
+// }
+// asynFn()
+
+// const myPromise = new Promise((resolve,reject)=>
+// {
+//     const randomNum = Math.floor(Math.random()*2) 
+//     console.log(randomNum)
+//     if(randomNum === 0)
+//     {
+//         resolve()
+//     }
+//     else
+//     {
+//         reject()
+//     }
+// })
+// myPromise.then(()=>console.log("success"))
+//          .catch(()=> console.log("Failure"))
+         
+         
+// async function fn()
+// {
+//     return 1;
+// }
+// console.log(fn())
+
+
+async function myFn()
+{
+    return new Promise ((resolve,reject)=>
+    {
+        setTimeout(()=>
+        {
+            resolve(1)
+        },1000)
+        
+    })
+    
+}
+
+// async function myoutput()
+// {
+//   const output=  myFn()
+//   console.log(output) 
+// }
+// myoutput()
+
+async function awaitFn()
+{
+    const v1 = await myFn()
+    const v2 = await incrementOne(v1)
+    const v3 = await incrementOne(v2)
+    const v4 = await incrementOne(v3)
+    console.log(v4)
+}
+
+// async function awaitFn()
+// {
+//     myFn().then((res)=> incrementOne (res))
+//     .then((res)=> incrementOne (res))
+//     .then((res)=> incrementOne (res))
+//     .then(console.log)
+// }
+
+async function incrementOne(res)
+{
+    return new Promise((resolve, reject)=>
+    {
+        setTimeout(()=>
+        {
+            resolve(res+1)
+        },1000)
+    })
+}
+awaitFn()
+

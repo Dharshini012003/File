@@ -1,0 +1,269 @@
+// //call back function
+
+// // function jkbangles(name)
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("Diwlai offer 10% " + name)
+// //     },3000)
+    
+// //     setTimeout(()=>
+// //     {
+// //         console.log("lastest collection available in " + name)
+// //     },4000)
+// // }
+
+// // function bangles(callback)
+// // {
+// //     console.log("OrderNow")
+// //     callback("jkbangles")
+// // }
+// // bangles(jkbangles)
+
+// //chaning
+
+// // function first(callback)
+// // {
+// //     setTimeout(()=>
+// //     {
+// //      console.log("i am reached 3 sec")   
+// //     },3000)
+// //     callback()
+// // }
+// // function second(callback)
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("i am reached 5 sec ")
+// //     },5000)
+// //     callback()
+// // }
+
+// // function third()
+// // {
+// //     setTimeout(()=>
+// //     {
+// //         console.log("i am reached 8 sec")
+// //     },8000)
+// // }
+
+// // first(()=>second(()=>third()))
+
+// //Array forEach callback function
+
+//  const fruits =['apple','banana','cherry']
+// fruits.forEach((val)=> console.log(val.toUpperCase()))
+
+// //Array map call back function
+
+// const number = [1,10,15,40,35]
+// const result = number.map((sum)=>{
+//     return sum * 2;
+// })
+// console.log(result)  
+
+
+// // Array filter callback function
+
+// const person =[
+//     {firstname:"kumaresan",lastname:"shanmugam", active: true }, 
+//     {firstname:"jayalakshmi", lastname:"kumaresan",active: true},
+//     {firstname:"arun", lastname:"latha", active: false},
+//     ]
+//  const detail= person.filter((getdetail)=>
+//  {
+//      return getdetail.active == true; 
+//  })
+// console.log(detail)
+
+// // array filter callback function
+
+// const matchValue = [2,15,10,12,36]
+// const match = matchValue.filter((num)=>
+// {
+//     return num >12;
+// })
+// console.log(match)
+    
+// //Promise
+
+// const takkalbook = new Promise ((resolve,reject)=>
+// {
+//     takkalbooking = true
+//     if(takkalbooking)
+//     {
+//         resolve(850);
+//     }
+//     else
+//     {
+//         reject();
+//     }
+// })
+
+// takkalbook.then((amt)=>console.log(`thankyou i have book train ticket at cost of! ${amt}`))
+// .catch(()=>console.log("sorry train ticket not available ! please book bus ticket!"))
+
+//promise ALL
+
+
+let reached1 = new Promise((resolve,reject)=>
+ {
+    const reached = true
+    if(reached)
+    {
+        setTimeout(resolve,3000,"Reached kumaresan")
+    }
+    else
+    {
+        console.log("Not reached")
+    }
+})
+  let reached2 = new Promise((resolve,reject)=>
+  {
+    const reached = true
+    if(reached)
+    {
+    setTimeout(resolve,5000,"Reached jaya")
+    }
+    else
+    {
+        console.log("Not reached")
+    }
+  })
+  
+  let reached3 = new Promise((resolve,reject)=>
+   {
+    let reached = true
+    if(reached)
+    {
+      setTimeout(resolve,6000,"Reached lakshmi")
+    }
+    else
+    {
+        console.log("Not reached")
+    }
+ })
+
+Promise.race([reached1,reached2,reached3])
+.then((message)=> console.log(message))
+.catch((message)=> console.log(message))
+
+
+//1. function decalration
+
+// function sayHello()
+// {
+//     console.log("hello")
+// }
+// sayHello()
+
+//2. Function expression
+
+// const greetMsg = function sayHello()
+// {
+//     console.log("Hello World from expression")
+// }
+// greetMsg();
+
+//3. Anonymous Function
+// const anonFunc = function()
+// {
+//     console.log("Hello world from expression")
+// }
+// anonFunc();
+//4.  Arrow function
+// let greet =()=>
+// {
+//     console.log("hello viewers")
+// }
+// greet()
+
+//5. Arrow function with single argument:
+// let square = a=> a*a;
+// const result = square(5);
+// console.log(result)
+
+//6. Arrow function with multiple argument 
+// let addition = (a,b)=>
+// {
+//  return a+b;
+// }
+// console.log(addition(10,20));
+
+//7. Arrow function in object
+
+// const person ={
+//     firstName:"kumaresan",
+//     lastName:"shanmugam",
+//     age:29,
+    
+//     // getFullname:()=> //object arrow function using
+//     // {
+//     //     return person.firstName +" "+ person.lastName;
+//     // }, or 
+    
+//     getFullname()
+//     {
+//       return this.firstName +" "+ this.lastName;
+//     }
+// }
+// console.log(person.getFullname());
+
+//8. Array function as callback
+
+// const number = [1,2,3,4,5,6]
+// const sqr=number.map((val)=>
+// {
+//     return val * val;
+// })
+// console.log(sqr)
+or
+// const number = [1,2,3,4,5,6]
+// const sqr=number.map((val)=> val * val)
+// console.log(sqr)
+
+//arrow function with single argument
+// const squares = (x)=>
+// {
+//     return x * x;
+// }
+// const sum = squares(5);
+// console.log(sum);
+
+//9. returning object literals in arrow function
+// const mobileDetail =()=>
+// ({
+//     id:1,
+//     model:"samsung",
+// });
+// console.log(mobileDetail());
+
+
+//javascript constructor function
+const person ={
+    name:"kumaresan", // property
+    age: 29,
+    bio:function(){
+        return ` ${this.name} is ${this.age} age!` // method
+    },
+    introduceSelf(){
+        return `my name is ${this.name}` // method
+    },
+}
+console.log(person.bio());
+console.log(person.introduceSelf())
+
+function createPerson(name,age)
+{
+    let obj={}
+    obj.name= name;
+    obj.age=age;
+    obj.introduceSelf=function()
+    {
+        return `hi myname is ${obj.name} ${obj.age}`
+    }
+    return obj
+}
+
+const createdperson1 =createPerson ("kumaresan",29)
+const createdperson2 =createPerson("jaya",23)

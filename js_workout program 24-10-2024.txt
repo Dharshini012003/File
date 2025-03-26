@@ -1,0 +1,158 @@
+// function jkBangle(bangle)
+// {
+//     setTimeout(()=>
+//     {
+//      console.log("Order Colorfull Silk Bangle Now ")
+//     },3000)
+//     setTimeout(()=>
+//     {
+//      console.log("Our Website is jkbangle.in")
+//     },6000)
+// }
+
+// function orderBangle(callback)
+// {
+//     console.log("Diwali offer 10% every Bangles");
+//   callback()
+// }
+// orderBangle(jkBangle);//handler is reference
+
+// chaning callback
+
+function jkbangle1(callback)
+{
+    setTimeout(()=>
+    {
+        console.log("Diwali offer 10% in JK bangle")
+        callback()
+    },3000)
+}
+function jkbangle2(callback)
+{
+    setTimeout(()=>
+    {
+        console.log("variety of color offer in jk bangle")
+        callback()
+    },4000)
+}
+
+function jkbangle3()
+{
+    setTimeout(()=>
+    {
+        console.log("order now in JKbangles.in")
+    },6000)
+}
+jkbangle1(()=> jkbangle2(()=>jkbangle3())) // callback function mean function jkbangles1 execute call back another function like jkbangle2 this called call back
+//callback function na intha work mudichathu vera function excute aganum nanaikuramala atha na callback function
+
+// function jkbangle(name)
+// {
+//     console.log('diwali offer 10% ' + name);
+// }
+// function bangle(name)
+// {
+//     console.log('order now ' + name)
+// }
+// function bangles(callback)
+// {
+//     // console.log(callback);
+//     callback("Bangles")//function callback passing arugment to value name // value store in callback
+// }
+// bangles(jkbangle) //call function
+// bangles(bangle)
+
+// const arr = ["kumar","jaya","lakshmi"]
+// const arr1 =arr.forEach((print)=> ///forEach , filter, map is callback
+// {
+//     console.log("current Person",print.toUpperCase());
+// })
+
+
+//promise
+
+// function takkalBook()
+// {
+//  return  new Promise((resolve,reject)=>
+//   {
+//     let bookingSuccess = true
+//     if(bookingSuccess)
+//     {
+//     resolve(850)
+//     }
+//     else
+//     {
+//     reject()
+//     }
+// })
+// }
+// takkalBook().then((amt)=>console.log(`thanks buddy! i have transferred the amt ${amt}`))
+// .catch(()=>  console.log("thanks for trying i will book bus"));
+
+
+
+function tossCoin()
+{
+    return new Promise ((resolve,reject)=>
+    {//0-head success 1- tail failure
+        const rand = Math.floor(Math.random()*2);
+
+        if(Rand==0)
+        {
+            resolve()
+        }
+        else
+        {
+            reject()
+        }
+    })
+}
+tossCoin().then(()=> console.log("congrats! it head"))
+          .catch(()=> console.log("Sorry!you lost!its"))
+          
+          
+        //   const rand = Math.floor(Math.random()*2);
+        //   console.log(rand)
+
+//Promise ALL
+
+let reachA = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached)
+    {
+        setTimeout (resolve,3000,"kumaresan reached")
+    }
+    else
+    {
+        reject("kumaresan not reached")
+    }
+})
+let reachB = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached)
+    {
+        setTimeout (resolve,1000,"Jaya reached")
+    }
+    else
+    {
+        reject("kumaresan not reached")
+    }
+})
+let reachC = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached)
+    {
+        setTimeout (resolve,2000,"Lakshmi reached")
+    }
+    else
+    {
+        reject("kumaresan not reached")
+    }
+})
+
+Promise.all([reachA,reachB,reachC])
+.then((message)=>console.log(message))
+.catch((message)=>console.log(message))

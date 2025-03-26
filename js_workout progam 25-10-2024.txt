@@ -1,0 +1,264 @@
+//call back
+
+// function userItem()
+// {
+//     setTimeout(()=>
+//     {
+//         console.log("Diwali offer 10% in JK Bangles")
+//     },3000)
+    
+//     setTimeout(()=>
+//     {
+//         console.log("visite my website jkbangles.in")
+//     },4000)
+// }
+
+// function saleYear(callback)
+// {
+//     console.log("Happy customer Happy diwali get 10% discount offer")
+//     callback()
+// }
+// saleYear(userItem)
+
+//
+
+// function firstCustomer(callback)
+// {
+//     setTimeout(()=>
+//     {
+//         console.log("Review for jk bangles Gold silk thread Bangles rate 9/10 ")
+//     },2000)
+//     callback()
+// }
+// function secondCustomer(callback)
+// {
+//     setTimeout(()=>
+//     {
+//         console.log("Review for jk bangles Blue silk thread Bangles rate 8/10 ")
+//     },3000)
+//     callback()
+// }
+// function thirdCustomer()
+// {
+//     setTimeout(()=>
+//     {
+//         console.log("Review for jk bangles kids silk thread Bangles rate 7.5/10 ")
+//     },4000)
+// }
+
+// firstCustomer(()=>secondCustomer(()=>thirdCustomer()))//chaning callback function
+
+// //callback Array
+
+// const fruits =['Apple','Banana','Cherry']
+// const fruit= fruits.forEach((val,index)=> // call back function
+// {
+//     console.log(val,index)
+// })
+
+// //promise
+ 
+//  const takkalBook = new Promise((resolve,reject)=>
+//  {
+//      let takkalbooking = true
+//      if(takkalbooking == true)
+//      {
+//          resolve()
+//      }
+//      else
+//      {
+//          reject()
+//      }
+//  })
+//  takkalBook.then(()=>console.log("thankyou! For booking ticket"))
+//              .catch(()=>console.log("ticket Not avaiable, please book bus!"))
+
+//promise all
+let reachA = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached==true)
+    {
+        setTimeout(resolve,3000,"kumaresan reached")
+    }
+    else
+    {
+         reject("Kumaresan not reached")
+    }
+   
+})
+let reachB = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached==true)
+    {
+        setTimeout(resolve,2000,"jaya reached")
+    }
+    else
+    {
+         reject("Jaya not reached")
+    }
+   
+})
+let reachC = new Promise((resolve,reject)=>
+{
+    const reached = true
+    if(reached==true)
+    {
+        setTimeout(resolve,1000,"Meena reached")
+    }
+    else
+    {
+         reject(" Meena not reached")
+    }
+   
+})
+// Promise.all([reachA,reachB,reachC]) //promise all is check condition false it exceute the result //all condition is true execute the all result
+// .then((message)=> console.log(message))
+// .catch((message)=> console.log(message))
+
+// pending: initial state, neither fulfilled nor rejected.
+// fulfilled: meaning that the operation was completed successful
+// rejected: meaning that the operation failed.
+
+// Promise.allSettled([reachA,reachB,reachC]) //Fulfills when all promises settle.
+// .then((message)=> console.log(message))
+// .catch((message)=> console.log(message))
+
+//Promise - pending, resolved, rejected (settled)
+// Promise.any([reachA,reachB,reachC]) // Fulfills when any of the promises fulfills; rejects when all of the promises reject.//ellam reject ahana than any reject agum //Any one resolve agum pakanum
+// .then((message)=> console.log(message))
+// .catch((message)=> console.log(message))
+
+
+Promise.race([reachA,reachB,reachC])//yethana one settle ahanale failure or success output show pananum
+.then((message)=> console.log(message))
+.catch((message)=> console.log(message))
+
+//arrow function 
+
+//arrow function also know as fat arrow function were introduced in ECMAScripts 2015 (ES6) and provide a concise  way to write function in javascripts- meaning can easy wirte function
+
+//they utilize the => syntax and they have few different syntax options depending on the situation
+
+//1. function decalration
+
+// function sayHello()
+// {
+//     console.log("hello")
+// }
+// sayHello()
+
+//2. Function expression
+
+// const greetMsg = function sayHello()
+// {
+//     console.log("Hello World from expression")
+// }
+// greetMsg();
+
+//3. Anonymous Function
+// const anonFunc = function()
+// {
+//     console.log("Hello world from expression")
+// }
+// anonFunc();
+//4.  Arrow function
+// let greet =()=>
+// {
+//     console.log("hello viewers")
+// }
+// greet()
+
+//5. Arrow function with single argument:
+// let square = a=> a*a;
+// const result = square(5);
+// console.log(result)
+
+//6. Arrow function with multiple argument 
+// let addition = (a,b)=>
+// {
+//  return a+b;
+// }
+// console.log(addition(10,20));
+
+//7. Arrow function in object
+
+// const person ={
+//     firstName:"kumaresan",
+//     lastName:"shanmugam",
+//     age:29,
+    
+//     // getFullname:()=> //object arrow function using
+//     // {
+//     //     return person.firstName +" "+ person.lastName;
+//     // }, or 
+    
+//     getFullname()
+//     {
+//       return this.firstName +" "+ this.lastName;
+//     }
+// }
+// console.log(person.getFullname());
+
+//8. Array function as callback
+
+// const number = [1,2,3,4,5,6]
+// const sqr=number.map((val)=>
+// {
+//     return val * val;
+// })
+// console.log(sqr)
+or
+// const number = [1,2,3,4,5,6]
+// const sqr=number.map((val)=> val * val)
+// console.log(sqr)
+
+//arrow function with single argument
+// const squares = (x)=>
+// {
+//     return x * x;
+// }
+// const sum = squares(5);
+// console.log(sum);
+
+//9. returning object literals in arrow function
+// const mobileDetail =()=>
+// ({
+//     id:1,
+//     model:"samsung",
+// });
+// console.log(mobileDetail());
+
+
+//javascript constructor function
+const person ={
+    name:"kumaresan", // property
+    age: 29,
+    bio:function(){
+        return ` ${this.name} is ${this.age} age!` // method
+    },
+    introduceSelf(){
+        return `my name is ${this.name}` // method
+    },
+}
+console.log(person.bio());
+console.log(person.introduceSelf())
+
+function createPerson(name,age)
+{
+    let obj={}
+    obj.name= name;
+    obj.age=age;
+    obj.introduceSelf=function()
+    {
+        return `hi myname is ${obj.name} ${obj.age}`
+    }
+    return obj
+}
+
+const createdperson1 =createPerson ("kumaresan",29)
+const createdperson2 =createPerson("jaya",23)
+
+console.log(createdperson1.introduceSelf());
+console.log(createdperson2.introduceSelf());
