@@ -1,0 +1,173 @@
+HTML
+What are tags and attributes in HTML?
+What are void elements in HTML?
+What is the advantage of collapsing white space?
+What are HTML Entities?
+What are different types of lists in HTML?
+What is the ‘class’ attribute in HTML?
+What is the difference between the ‘id’ attribute and the ‘class’ attribute of HTML elements?
+Describe HTML layout structure
+How to optimize website assets loading?
+What are the various formatting tags in HTML?
+What are the different kinds of Doctypes available?
+Please explain how to indicate the character set being used by a document in HTML?
+What is the difference between <strong>, <b> tags and <em>, <i> tags?
+What is the significance of <head> and <body> tag in HTML?
+Can we display a web page inside a web page or Is nesting of webpages possible?
+How is Cell Padding different from Cell Spacing?
+How can we club two or more rows or columns into a single row or column in an HTML table?
+Is it possible to change an inline element into a block level element?
+In how many ways can we position an HTML element? Or what are the permissible values of the position attribute?
+In how many ways you can display HTML elements?
+What is the difference between “display: none” and “visibility: hidden”, when used as attributes to the HTML element.
+How to specify the link in HTML and explain the target attribute?
+In how many ways can we specify the CSS styles for the HTML element?
+Difference between link tag <link> and anchor tag <a>?
+How to include javascript code in HTML?
+When to use scripts in the head and when to use scripts in the body?
+What are forms and how to create forms in HTML?
+How to handle events in HTML?
+CSS
+What is the Box model in CSS? Which CSS properties are a part of it?
+What are the advantages of using CSS?
+What are the limitations of CSS?
+How to include CSS in the webpage?
+What are the different types of Selectors in CSS?
+What is a CSS Preprocessor? What are Sass, Less, and Stylus? Why do people use them?
+What is VH/VW (viewport height/ viewport width) in CSS?
+Difference between reset vs normalize CSS?. How do they differ?
+What is the difference between inline, inline-block, and block?
+Is it important to test the webpage in different browsers?
+What are Pseudo elements and Pseudo classes?
+How do you specify units in the CSS?. What are the different ways to do it?
+Does margin-top or margin-bottom have an effect on inline elements?
+What property is used for changing the font face?
+What are the differences between adaptive design and responsive design?
+How are the CSS selectors matched against the elements by the browser?
+How is border-box different from content-box?
+How is opacity specified in CSS3?
+Why should we use float property in CSS?
+What is a z-index, how does it function?
+What do the following CSS selectors mean?
+What are the properties of flexbox?
+What is cascading in CSS?
+Javascript
+What are the possible ways to create objects in JavaScript
+What is a prototype chain
+What is the difference between Call, Apply and Bind
+What is JSON and its common operations
+What is the purpose of the array slice method
+What is the purpose of the array splice method
+What is the difference between slice and splice
+How do you compare an Object with a Map
+What is the difference between == and === operators
+What are lambda expression or arrow functions
+What is a first class function
+What is a first order function
+What is a higher order function
+What is a unary function
+What is the currying function
+What is a pure function
+What is the purpose of the let keyword
+What is the difference between let and var
+What is the reason to choose the name let as a keyword
+How do you redeclare variables in switch block without an error
+What is the Temporal Dead Zone
+What is IIFE(Immediately Invoked Function Expression)
+How do you decode or encode a URL in JavaScript?
+What is memoization
+What is Hoisting
+What are classes in ES6
+What are closures
+What are modules
+Why do you need modules
+What is scope in javascript
+What are the differences between cookie, local storage and session storage
+What is the main difference between localStorage and sessionStorage
+What is a promise
+Why do you need a promise
+What are the three states of promise
+What is a callback function
+Why do we need callbacks
+What is a callback hell
+What are the main rules of promise
+What is callback in callback
+What is promise chaining
+What is promise.all
+What is the purpose of the race method in promise
+What is a strict mode in javascript
+Why do you need strict mode
+How do you declare strict mode
+What is the purpose of double exclamation
+What is the purpose of the delete operator
+What is typeof operator
+What is undefined property
+What is null value
+What is the difference between null and undefined
+What is eval
+What is the difference between window and document
+What is isNaN
+What are the differences between undeclared and undefined variables
+What are global variables
+What are the problems with global variables
+What is NaN property
+What is the purpose of isFinite function
+What is an event flow
+What is event bubbling
+What is event capturing
+What are the pros and cons of promises over callbacks
+What is the use of preventDefault method
+What is the use of stopPropagation method
+What is the use of setTimeout
+What is the use of setInterval
+Why is JavaScript treated as Single threaded
+What is an event delegation
+What is ECMAScript
+What is JSON
+What is the purpose of clearTimeout method
+What is the purpose of clearInterval method
+How do you check whether a string contains a substring
+How do you check if a key exists in an object
+How do you loop through or enumerate javascript object
+How do you test for an empty object
+What is an arguments object
+How do you convert the first letter of a string to uppercase
+What are the pros and cons of for loop
+How do you display the current date in javascript
+How do you compare two date objects
+How do you check if a string starts with another string
+How do you trim a string in javascript
+How do you add a key value pair in javascript
+Is the '!--' notation represents a special operator
+How do you assign default values to variables
+How do you define multiline strings
+What is a polyfill
+What is a rest parameter
+What is a spread operator
+What is an event loop
+What is call stack
+What is an event queue
+What is an Unary operator
+How do you reversing an array
+How do you find min and max value in an array
+How do you find min and max values without Math functions
+What are the differences between javascript and typescript
+What are the advantages of typescript over javascript
+What is an enum
+How do you extend classes
+What is ES6
+List down some of the features of ES6
+Can I redeclare let and const variables
+Is const variable makes the value immutable
+What are template literals
+Object destructuring
+How do you convert character to ASCII code
+What is the difference between Shallow and Deep copy
+What is an async function
+What are the differences between spread operator and rest parameter
+What is debouncing?
+What is throttling?
+What is pass by value and pass by reference?
+What are the differences between primitives and non-primitives?
+What are the differences between pure and impure functions?
+What is the difference between map and forEach functions?
