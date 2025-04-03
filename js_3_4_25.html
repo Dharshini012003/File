@@ -1,0 +1,194 @@
+<script type="module">
+
+//-----------------------3_4_25----------------------
+//Arrow Fxn
+const greet= (name =>`hi ${name} `);
+  console.log(greet("Dharsh"));
+  console.log(greet);
+
+  const person= {
+    name:"Vi",
+    age:22,
+    greet:function(){
+         setTimeout(()=>{ console.log(`hi ${this.name}`) } , 5000) //"hi Dharsh -----since this is used inside fxn"
+    }
+  };
+
+  //this will not bind with arrow fxn
+  // const person1= {
+  //   name:"dh",
+  //   age:22,
+  //   greet: ()=>{ console.log(`hi ${this.name}`) } 
+  //   };
+
+  person.greet(); // after5000 sec
+  // person1.greet(); //hi only no dharsh
+
+  //---------------calsses---------------
+
+  class Car
+  {
+    constructor(name,model)
+    {
+     this.name=name;
+     this.model=model;
+    }
+
+    display()
+    {
+        console.log(`${this.name} name of car and it's model is ${this.model}`)
+    }
+  }
+  const Car1 =new Car("Figo","Ford");
+  Car1.display();
+//-----------class inheritance--------------
+  class EvCar extends Car
+  {
+      constructor(name,model,mode)
+      {
+        super(name,model);
+        this.mode=mode;
+      }
+      newMode()
+      {
+        console.log(`${this.name} is new with ${this.mode}`);
+      }
+  }
+
+  const newCar= new EvCar("Figo","ford","electricity")
+  newCar.newMode();
+
+ // -------------class get set--------------
+
+ class Cars
+  {
+      constructor(make)
+      {
+        this._make=make;
+      }
+      get Make()
+      {
+        return this._make;
+      }
+      set Make(newMake)
+      {
+        this._make=newMake;
+      }
+  }
+
+  const newMake= new Cars(2015)
+  console.log(newMake.Make);
+
+  //-----------------------private variables-------------------
+  class BankAccount {
+    #balance = 1000; // Private variable
+
+    deposit(amount) {
+        this.#balance += amount;
+    }
+
+    getBalance() {
+        return this.#balance;
+    }
+}
+
+const myAccount = new BankAccount();
+myAccount.deposit(500);
+console.log(myAccount.getBalance()); 
+// console.log(myAccount.#balance);  //error
+
+//----------------------------closures--------------------------
+//inner scope remembers outer scope
+function outerScope ()
+{
+   this.message="hi";
+
+  const displayName=(name)=>
+  {
+    console.log(`${this.message} ${name}`);
+  };
+  return displayName;
+}
+
+const outer=new outerScope()
+console.log(outer)
+outer("dharshu")
+
+
+
+
+
+//if var used then i value is 4 as i is shared and let creates new i for nw iteratn
+for (let i = 1; i <= 3; i++) {
+  setTimeout(()=>{
+        console.log(`Value of i: ${i}`);
+    },2000)
+}
+
+//--------------fxn closure real life------------
+function bankAccount(initialBalance) {
+    let balance = initialBalance;
+
+    return {
+        deposit: function (amount) {
+            balance += amount;
+            console.log(`New balance: $${balance}`);
+        },
+        withdraw: function (amount) {
+            if (amount > balance) {
+                console.log("Insufficient funds!");
+            } else {
+                balance -= amount;
+                console.log(`Remaining balance: $${balance}`);
+            }
+        },
+        getBalance: function () {
+            return balance;
+        }
+    };
+}
+
+const myAcc = bankAccount(1000);
+myAcc.deposit(500);   // ✅ New balance: $1500
+myAcc.withdraw(2000); // ❌ Insufficient funds!
+console.log(myAcc.getBalance()); // ✅ Output: 1500
+
+//--------------importing--------------------
+
+// import defaultMessage from "./js_2_4_25.js";
+// defaultMessage();
+
+//--------------------promise--------------
+// const myPromise= new Promise((resolve,reject)=>{
+//   let success= true;
+
+//   setTimeout(()=>{
+//     if(success)
+//     {
+//     resolve("operation successful");
+//     }
+//     else
+//     {
+//       reject("operatopn failure")
+//     }},2000)
+// });
+
+const myPromise = new Promise((resolve, reject) => {
+    let success = true;  // Change this to false to test rejection
+
+    setTimeout(() => {
+        if (success) {
+            resolve(console.log(" Operation Successful!"));
+        } else {
+            reject(console.log(" Operation Failed!"));
+        }
+    }, 2000);
+});
+
+
+
+
+
+
+
+</script>

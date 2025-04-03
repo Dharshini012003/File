@@ -1,0 +1,193 @@
+<script>
+//assigning fxn to variable
+
+let greet= function (name) {
+    return ("hello" + name )
+};
+console.log(greet("bob"))
+//-----------------------------------
+//passing fxn as argument
+function executeFunction(fn)
+{
+    console.log(fn);
+}
+executeFunction(greet("John"));
+
+//----
+function sayHello() {
+  return "Hello, ";
+}
+function greeting(helloMessage, name) {
+  console.log(helloMessage() + name);
+}
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!");
+// Hello, JavaScript!
+//----------------------------
+//fxn returning frm another fxn
+
+function multiple(factor)
+{
+    return function(num)
+    {
+         return num * factor;
+    };
+}
+//--
+function sayHello() {
+  return () => {
+    console.log("Hello!");
+  };
+}
+
+const val=multiple(2);
+console.log(val(5));
+
+//----------------
+//storing fxn in array
+
+const operations=[(a,b)=>a+b,(a,b)=>a-b];
+console.log(operations[0](3, 4));
+
+//------------
+
+function greet(callback) {
+    console.log("Hello!");
+    callback();
+}
+
+greet(() => console.log("This is a callback!"));
+//------------
+//fxn taking another fxn as arg
+
+function greetuser(name,formatName)
+{
+    return formatName(name)
+};
+
+function formatFxn(name)
+{
+    return `Hello ${name}`;
+};
+
+console.log(greetuser("Alice",formatFxn))
+
+//buit in hof
+
+//map
+let arr=[2,3,4,5]
+let newArr=arr.Map(x =>x*2);
+console.log(newArr);
+
+//filter
+let arr=[2,3,4,5]
+let newArr=arr.filter(x =>x>2);
+console.log(newArr);
+
+//reduce
+let arr=[2,3,4,5]
+let newArr=arr.reduce((acc,num) =>acc+num);
+console.log(newArr);
+
+//------
+//finding obj length
+
+let obj = { name: "Alice", age: 25 };
+console.log( (Object.keys(obj)).length);
+
+//------
+//obj vs map
+
+let obj = {};
+let map = new Map();
+
+obj[1] = "Number"; // Key is converted to a string "1"
+obj[3] = "jk";     
+map.set(1, "Number");
+console.log(obj)
+
+for (let key in obj) {
+  console.log(obj[key]);
+}
+
+map.forEach((value, key) => {
+  console.log(key, value);
+});
+
+//---------------
+
+
+const person={
+  name:"Ram",
+  age:25,
+  skills:["html","css","js"],
+  place:{city:"New Delhi",country:"india"}
+};
+
+const jsonStr=JSON.stringify(person);
+//obj to json
+console.log(jsonStr);
+//json to obj
+console.log(JSON.parse(jsonStr));
+
+//access json inside array
+console.log(person.place.country);
+console.log(person["place"]["country"]);
+
+//access json elem key val
+for(let key in person)
+{
+  console.log(`${key} ${person[key]}`);
+}
+//------------------
+//local storage os json
+const user = { name: "Alice", age: 25 };
+localStorage.setItem("user", JSON.stringify(user));
+
+
+
+//-------------
+//invoke or call method with obj as arg
+
+const person={
+  names:"Ram",
+  age:25,
+  skills:["html","css","js"],
+  place:{city:"New Delhi",country:"india"},
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+const ram={
+    firstName:"ram",
+  lastName: "Doe"
+  
+  }
+const jeeva={
+    firstName:"jeeva",
+  lastName: "Doe"
+  
+  }
+console.log(person.fullName.call(ram));
+
+//can accept additional arg
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.call(person1, "Oslo", "Norway");
+
+</script>
+
+
+
+
+

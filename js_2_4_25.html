@@ -1,0 +1,178 @@
+<script>
+//----------2/4/25----------------
+
+
+// document.getElementById("demo").textContent = "<h2>Hello World</h2>";
+// document.write("hellooo");
+// window.alert("hello")
+// window.print();
+
+const pi = 3.14;
+console.log(typeof(pi));
+
+//If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.
+let xx = 2 +"5";
+console.log(xx); //55
+
+//a null means 'a" will act as obj
+const a = null;
+console.log(typeof a); // object
+
+
+//-----------------------------unary fx-------------------------------------------
+//unary fxn: takes one arg
+    const unary=(x)=>x*2;
+    console.log(unary(2));
+
+ //basic
+    function square(x)
+{
+        x= x*x;
+        return x;
+}
+
+console.log(square(6));
+
+ //unary with map
+arr=[1,2,3]
+const res = arr.map(x=>x+1);
+console.log(res);
+//----------------------------------currying fxn-----------------------------------------------------------------
+//currying fxn-technique that transforms mutiple arg fxn into sequence of fxn and pass multiple args one by one
+
+//ex1
+function add(a)
+{
+    return function(b){
+        console.log(a+b);
+    };
+}
+
+const remAdd=add(1);
+console.log("remAdd",remAdd);
+remAdd(2)
+
+//a passed value is 1
+//b passed into fxn and added result obtained in console log after fxn called
+
+//ex2
+function logger(level) {
+    return function (message) {
+        console.log(`[${level}] ${message}`);
+    };
+}
+
+const infoLog = logger("INFO");
+const errorLog = logger("ERROR");
+console.log(infoLog);
+
+infoLog("System is running smoothly.");  // Output: [INFO] System is running smoothly.
+errorLog("An error occurred!");         // Output: [ERROR] An error occurred!
+
+//ex3
+// Partial Application
+const multiply = (a, b, c) => a * b * c;
+
+const multiplyBy2 = multiply.bind("",2);
+console.log(multiplyBy2(3, 4)); // Output: 24
+
+function addToNewArray(arr, value) {
+    return [...arr, value]; // Returns a new array (no mutation)
+}
+
+//---------------------------------------pure fxn----------------------------------------------------------
+
+//Deterministic : same op for same input,does not not affect global scope,does not change original array 
+let nums = [1, 2, 3];
+console.log(addToNewArray(nums, 4)); // Output: [1, 2, 3, 4]
+console.log("original arr",nums); // Original array unchanged!
+
+//-------------------------let keyword------------------------------------------
+
+//block level scope{}, reassigned but not redeclared
+let name = "Alice";
+name = "Bob";
+console.log(name);
+//hoisted but not initialised,unlike var it is not initialised with undefined
+
+/* console.log(a);//error
+let a=10; */
+ 
+console.log(b); //op:undefined
+var b=10;
+
+//------------------------diff b/w let and var------------------
+//let:block scocped, var- fxn scoped
+
+function fullName(){
+{
+    let names="Dharsh";
+    var age=23;
+}
+return console.log(`hi ${age}`);
+}
+fullName();
+
+//let :no redclaratn var allows redclaratn
+var cp="high";
+var cp="low";
+console.log(cp);
+
+//var is attached to the window object(global object) (when declared globally).
+//let is NOT attached to window.
+
+var x = 100;
+let y = 200;
+
+console.log(window.x); // 100 
+console.log(window.y); //undefined (Not attached to `window`)
+
+//let and const does not bind to this.
+//var binds to this
+
+//hoisting
+try {
+  alert(carName);
+  var carName = "Volvo";
+}
+catch (err) {
+  document.getElementById("demo").innerHTML = err;
+}
+
+greet();
+function greet()
+{
+    console.log("helloo fxn hoisting")
+}
+
+//fxn expressions are not hoisted
+
+
+//Change the elements of constant array
+//Change the properties of constant object
+
+//-------------------------------------Imemediately invoked function----------------------------------------------
+(function(){console.log("I am iif");})();
+
+//arrow fxn
+(()=>{console.log("hi")})();
+
+(function(name){console.log(`hi ${name}`);})("Dharsh");
+
+//------------------------------------url encoding decoding-----------------
+
+let url="https://www.w3schools.com/html/html_forms.asp"
+let encodedURL = encodeURI(url);
+let encodedParam = encodeURIComponent(url);
+let decodeUrl = decodeURI(encodedURL);
+let decodeParam = decodeURIComponent(encodedParam);
+console.log(encodedURL);
+console.log(encodedParam);
+console.log(decodeUrl);
+
+
+//---------------------export-----------
+const defaultMessage= ()=> {console.log("hi from exported")};
+export default defaultMessage;
+</script>
+
