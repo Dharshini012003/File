@@ -1,0 +1,161 @@
+<div class="parent">
+    <button id="child">click me</button>
+</div>
+
+<div class="par">
+    <button id="chd">click me</button>  
+</div>
+
+<form>
+<input type="checkbox" id="chk">
+<input type="text" id="name" placeholder="enter name">
+<input type="submit">
+</form>
+
+
+<script>
+//---------------nan---------------
+console.log("what result:",Number.isNaN("abc")); //false printed becoz either it should be a" num" or "nan" ,its str and not true for both case so false
+
+
+//-----------------event handle-------------------------
+//buble is default
+let btnChild= document.getElementById("child");
+let btnParent= document.getElementsByClassName("parent")[0];  //[0] since it returns html collection
+let chkBox= document.getElementById("chk");
+let inpName = document.getElementById("name");
+let form = document.querySelector("form");
+
+
+btnChild.addEventListener("click",(event)=>{
+    console.log("Child clicked");
+    event.stopPropagation();   //to stop bubbling
+})
+
+btnParent.addEventListener("click",()=>{
+    console.log("Parent clicked");
+})
+//
+
+let btnChild2= document.getElementById("chd");
+let btnParent2= document.getElementsByClassName("par")[0];  //[0] since it returns html collection
+
+btnChild2.addEventListener("click",()=>{
+    console.log("Chd clicked");
+},true)
+
+btnParent2.addEventListener("click",()=>{
+    console.log("Par clicked");
+},true)
+
+//-----event preventdefault------------
+chkBox.addEventListener("click",(event)=>{
+    event.preventDefault();
+})
+
+form.addEventListener("submit",(event)=>{
+    event.preventDefault();
+})
+
+inpName.addEventListener("keydown",(e)=>{
+    if(e.key==="1")
+    e.preventDefault();
+})
+
+//---------------------clearTimeOut to clear set timeout------------------
+let timerId = setTimeout(() => {
+  console.log("You'll never see this");
+}, 5000);
+
+clearTimeout(timerId); // cancels it before it runs
+
+//------set interval-----
+function sayHi(name) {
+  console.log(`Hi, ${name}`);
+}
+
+setInterval(sayHi, 3000, "shu");
+
+//stop set interval
+let intervalId = setInterval(() => {
+  console.log("Repeating...");
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(intervalId);  // Stop it after 5 seconds
+  console.log("Stopped!");
+}, 5000);
+
+
+
+
+
+//-------------------------delegate event-: no need to pass click  to different buttons--------------------------
+
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach(button => {
+  button.addEventListener("click", (event) => {
+    console.log(event.target.innerText)
+  })
+})
+
+
+let searchTimeout;
+
+inpName.addEventListener("input", () => 
+{
+  clearTimeout(searchTimeout); // clear old timeout
+  
+  searchTimeout = setTimeout(() => {
+    performSearch(); // only runs if user stops typing for 500ms
+  }, 500);
+});
+
+function performSearch(){
+    console.log("helloooooo")
+}
+
+//--------------enumerate js obj
+const person = {
+  name: "Dharshu",
+  age: 20,
+  isStudent: true
+};
+
+//method1
+for(let key in person)
+{
+    console.log(key,person[key])
+   
+}
+//method2
+// Object.keys ( person ).forEach(key=>{
+//     console.log(key,person[key])
+// }) 
+console.log(Object.values(person))
+console.log(person);
+
+let str="vignesh"
+const capitalize = str => str[0].toUpperCase() + str.slice(1);
+console.log(capitalize(str))
+
+
+///------------------------date-------------------
+const now = new Date();
+console.log(now.toDateString())
+console.log(now.toISOString())
+const day = now.getDate();
+console.log(day)
+const month = now.getMonth() + 1; // Months are 0-based
+console.log(month)
+const year = now.getFullYear();
+console.log(year)
+const formattedDate = `${day}/${month}/${year}`;
+console.log(formattedDate); // 1/4/2025;
+d1.toISOString()
+const time = now.toLocaleTimeString(); 
+console.log(time); // e.g. "5:24:17 PM"
+
+
+</script>
